@@ -1,0 +1,10 @@
+These are the sections and subsections under which the articles will be posted. 
+Category is specified for each page under the "page_category" column in "page" database.
+The heirarchy format is <main section>//<sub section>//
+
+The major sections are:
+1. Crops
+	A. Creepers
+	B. Climbers
+	C. Shrubs
+2. Soil 
