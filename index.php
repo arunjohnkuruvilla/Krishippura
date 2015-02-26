@@ -1,4 +1,8 @@
-<?php require_once("./initialize_database.php"); ?>
+<?php 
+  require_once('./config.php');
+  require_once("./initialize_database.php"); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

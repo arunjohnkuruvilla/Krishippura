@@ -403,9 +403,9 @@
   }
 }
 
-footer {
+.footer {
   bottom:0;
-  position: relative;
+  position: fixed;
   height: 2em;
   width: 100%;
 }
@@ -414,3 +414,4 @@ footer {
   .tg td{font-family:Arial, sans-serif;font-size:14px;padding:5px 5px;overflow:hidden;word-break:normal;}
   .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;overflow:hidden;word-break:normal;}
   .tg .tg-s6z2{text-align:center}
+

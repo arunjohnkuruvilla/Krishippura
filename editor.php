@@ -1,6 +1,7 @@
 <?php
 // this is where content is entered for the appropriate event using an HTML editor.
 // content from the database will be filled in hidden text boxes and then populated to sections and other
+require_once('config.php');
 require_once("initialize_database.php");
 $eventcode = "";
 /*if (isset($_SESSION["type"])) {

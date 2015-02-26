@@ -1,4 +1,5 @@
 <?php 
+	require_once('./config.php');
 	require_once("./initialize_database.php");
 	$edit_success = "";
 	if(isset($_GET['success']) && isset($_GET['article'])) {

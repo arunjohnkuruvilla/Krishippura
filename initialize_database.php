@@ -4,8 +4,6 @@
  * for establishing database connection and starting a session
  */
 
-//Include the configuration file
-require_once("./config.php");
 
 //Set up database connection
 $mysqli = new mysqli($host,$database_user,$database_password,$database_name);

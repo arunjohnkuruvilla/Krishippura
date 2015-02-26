@@ -1,0 +1,38 @@
+hr {
+margin-top: 20px;
+margin-bottom: 20px;
+border: 0;
+border-top: 1px solid #eee;
+}
+
+
+.tab_section {
+	width: 100%;
+}
+.tab_section_head {
+	font-size: 2em;
+	width: 100%;
+	height:2em;
+
+}
+.tab_section_head p {
+	float: left;
+	width: 100%;
+	border-bottom: 1px solid #000;
+}
+.tab_section_content {
+	
+	width: 100%;
+}
+
+.section_drop {
+	height: 50px;
+	width: 5%;
+	float: left;
+	cursor: pointer;
+}
+
+
+.article_nav {
+  margin: 10px;
+}

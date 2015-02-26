@@ -7,7 +7,7 @@ RewriteRule (.*) %{REQUEST_URI}/ [R=301,L]
 
 RewriteEngine on 
 RewriteRule ^articles/(.*)/$ article.php?page=$1 [L]
-RewriteRule ^pages/(.*)/$ page.php?page=$1 [L]
+#RewriteRule ^pages/(.*)/$ page.php?page=$1 [L]
 
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteCond %{REQUEST_FILENAME} !-d
