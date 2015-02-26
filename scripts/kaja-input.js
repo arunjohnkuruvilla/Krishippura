@@ -353,7 +353,8 @@ function new_kaja_input(src) {
   $("<span/>", {"class": "ki-but", html: "<img src=\"images/bull.png\" alt=\"Bulleting\" />", title: "Bulleting"}).click({tag: "ul"}, lister_click).insertBefore(src);
   $("<span/>", {"class": "ki-but", html: "<img src=\"images/num.png\" alt=\"Numbering\" />", title: "Numbering"}).click({tag: "ol"}, lister_click).insertBefore(src);
   $("<span/>", {"class": "ki-but", html: "<img src=\"images/img.png\" alt=\"Insert image\" />", title: "Insert image"}).click(ins_img_click).insertBefore(src);
-  $("<span/>", {"class": "ki-but", html: "<a>Link</a>", title: "Internal Link"}).click({tag: "internal"}, styler_click).insertBefore(src);
+  $("<span/>", {"class": "ki-but", html: "<a>Internal</a>", title: "Internal Link"}).click({tag: "internal"}, styler_click).insertBefore(src);
+  $("<span/>", {"class": "ki-but", html: "<a>External</a>", title: "External Link"}).click({tag: "external"}, styler_click).insertBefore(src);
   $("<span/>", {"class": "ki-but", html: "Preview"}).insertBefore(src);
   $("<span/>", {"class": "ki-but", html: "Help"}).click(help_click).insertBefore(src);
   $("<span/>", {"class":"clear"}).insertBefore(src);
