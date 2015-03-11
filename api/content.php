@@ -1,7 +1,7 @@
 <?php
-	require_once('../config.php');
-	require_once('../initialize_database.php');
-	require_once('../functions.php');
+	require_once('../workspace/config.php');
+	require_once('../workspace/initialize_database.php');
+	require_once('../workspace/functions.php');
 
 	$article_name = str_replace("_", " ", $_GET['page']);
 
@@ -14,7 +14,7 @@
 
 	$desc = str_replace(array('<b>','</b>','<i>','</i>'),' ',$row['page_content']);
 	$desc = "Introduction||ttl||".$desc;
-	$desc = text_to_link($desc);
+	$desc = text_to_external_link(text_to_link($desc));
 	$sections = explode("||sec||", $desc);
 	$arr['sections_count']=count($sections);
 	$j=count($sections);

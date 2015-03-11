@@ -17,15 +17,28 @@ function text_to_link($text) {
         $value_new = substr($value, 2, $len-4);
         if(verify_internal_link($value_new)) {
             $value_link = preg_replace("/[ ]/", "_", $value_new);
-            $link = '<a href="articles/'.$value_link.'" class="true-link">'.$value_new.'</a>';
+            $link = '<a href="articles/'.$value_link.'" class="internal true link">'.$value_new.'</a>';
             $text = str_replace($value, $link, $text);
         }
         else {
             $value_link = preg_replace("/[ ]/", "_", $value_new);
-            $link = '<a href="#" class="false-link">'.$value_new.'</a>';
+            $link = '<a href="#" class="internal false link">'.$value_new.'</a>';
             $text = str_replace($value, $link, $text);
         }
         
+    }
+    return $text;
+}
+
+function text_to_external_link($text) {
+    preg_match_all("/--[a-zA-Z \/\+?&:.0-9]*--/", $text, $output_array);
+    foreach ($output_array[0] as &$value) {
+        $len = strlen($value);
+        $value_new = substr($value, 2, $len-4);
+        $link_parts = explode("++", $value_new);
+
+            $link = '<a target="_blank" href="'.$link_parts[0].'" class="external link">'.$link_parts[1].'</a>';
+            $text = str_replace($value, $link, $text);
     }
     return $text;
 }

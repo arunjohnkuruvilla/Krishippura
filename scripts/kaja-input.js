@@ -64,6 +64,10 @@ function update_preview(src, str) {
   // Filter out tags which are not allowed
   src.value = src.value.replace("<internal>","[[Article Name");
   src.value = src.value.replace("</internal>","]]");
+
+  src.value = src.value.replace("<external>","--http://www.example.com++Link title");
+  src.value = src.value.replace("</external>","--");
+
   src.value = src.value.replace(/<(?!\/|([biusqp]|br ?\/?|sup|sub|ul|ol|li|table|tr|td|th( style=['"][^'"]+['"])?|a href=['"][^'"]+['"]|center|img [^>]+)>)/g, "&lt;");
   src.value = src.value.replace(/<\/(?!([biusqpa]|sup|sub|ul|ol|li|center|table|tr|td|th)>)/g, "&lt;/");
   $(src).nextAll(".view").html(src.value);

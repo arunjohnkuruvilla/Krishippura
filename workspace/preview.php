@@ -16,8 +16,8 @@
 	else {
 		$article_id = $_GET['article'];
 		$article_content = $_POST['content']; 	//this will hold the content to be sent to the database
-		$article_display = text_to_link($article_content); 	//this will be the content that we will parse to display.
-	}
+		$article_display = text_to_external_link(text_to_link($article_content)); 	//this will be the content that we will parse to display.
+  }
 ?>
 <!DOCTYPE html>
 

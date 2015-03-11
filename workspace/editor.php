@@ -36,6 +36,7 @@ $mysqli->close();
 
 <html>
 <head>
+  <base href="/" />
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
   <title>Article Editor</title>
@@ -54,7 +55,7 @@ $mysqli->close();
 <body>
 
     <!-- Navigation Bar -->
-    <?php require("./includes/layout/navbar.php") ?>
+    <?php include("../includes/layout/navbar.php") ?>
 
     <div class="container" style="padding-top:5rem;padding-bottom:4rem;height:95%">
         <!-- If proofreader then 'Go back' option is present so as to allow the proofreader
@@ -87,10 +88,5 @@ $mysqli->close();
             </div>
         </div>
     </div>
-      <footer class="footer">
-    <div class="container">
-    Copyright. All rights reserved.   
-    </div>
-  </footer>
 </body>
 </html>

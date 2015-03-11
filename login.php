@@ -3,7 +3,7 @@ if(isset($_POST['login'])){
   if(($_POST['usernameLogin'] == "admin") && ($_POST['passwordLogin'] == "admin")) {
     session_start();
     $_SESSION['user_id'] = 1;
-    header("Location: workspace.php");
+    header("Location: workspace/workspace.php");
   }
 }
 ?>
