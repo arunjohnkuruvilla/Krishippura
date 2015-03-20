@@ -7,5 +7,8 @@
         <li class="navbar-item"><a class="navbar-link" href="#">WATER HARVESTING</a></li>
         <li class="navbar-item"><a class="navbar-link" href="#">CONTACT US</a></li>
       </ul>
+      <ul class="navbar-list" style="float:right">
+        <li class="navbar-item"><a class="navbar-link" href="#">AgroDB</a></li>
+      </ul>
     </div>
   </nav>

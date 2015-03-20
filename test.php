@@ -1,10 +1,18 @@
 <?php 
-require_once("./config.php");
-require_once("./initialize_database.php"); 
+require_once("./workspace/config.php");
+require_once("./workspace/initialize_database.php"); 
+
+echo "INSERT INTO `prototype`.`category` (`cat_id`, `primary_cat`, `sub_cat`, `cat_name`) VALUES ('2', '1', 'B', 'Flowers');";
+echo "<br/>INSERT INTO `prototype`.`category` (`cat_id`, `primary_cat`, `sub_cat`, `cat_name`) VALUES ('3', '1', 'C', 'Leaves');";
+echo "<br/>INSERT INTO `prototype`.`category` (`cat_id`, `primary_cat`, `sub_cat`, `cat_name`) VALUES ('4', '1', 'D', 'Roots');";
+echo "<br/>INSERT INTO `prototype`.`category` (`cat_id`, `primary_cat`, `sub_cat`, `cat_name`) VALUES ('5', '2', 'A', 'Alappuzha');";
+echo "<br/>INSERT INTO `prototype`.`category` (`cat_id`, `primary_cat`, `sub_cat`, `cat_name`) VALUES ('6', '2', 'B', 'Ernakulam');";
+echo "<br/>INSERT INTO `prototype`.`category` (`cat_id`, `primary_cat`, `sub_cat`, `cat_name`) VALUES ('7', '2', 'C', 'Idukki');";
+echo "<br/>INSERT INTO `prototype`.`category` (`cat_id`, `primary_cat`, `sub_cat`, `cat_name`) VALUES ('8', '2', 'D', 'Kannur');";
 
 $text = "Lorem ipsum dolor sit amet, consectetur [[Fish]] adipisicing elit, sed do eiusmod [[Harry Potter]]";
-echo $text;
-echo "<br/>";
+//echo $text;
+//echo "<br/>";
 function verify_internal_link($link) {
     global $mysqli;
     $title_query = $mysqli->query("SELECT page_title FROM page WHERE page_title='$link'");
@@ -31,8 +39,8 @@ function text_to_link($text) {
     return $text;
 }
 $text = text_to_link($text);
-echo $text;
-echo "<br/>";   
+//echo $text;
+//echo "<br/>";   
 /*
 function link_to_text($text) {
     preg_match_all("/\<a href=\"[a-zA-Z_\/]*\" class=\"[a-zA-Z-]*\">[a-zA-Z ]*<\/a>/", $text, $output_array);

@@ -1,8 +1,3 @@
-<?php 
-  require_once('./workspace/config.php');
-  require_once("./workspace/initialize_database.php"); 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,66 +28,30 @@
 
   <div style="padding-top:5rem">
     <div class="container">
-      <div class="row">
-        <h1>AgroDB</h1>
-      </div>  
-      <div class="row">
+      <div id="query-section" class="row">
         <div class="eleven columns">
           <input class="u-full-width" type="text" placeholder="Enter your query here..." id="mainSearchInput">
         </div>
       </div>
       <br/>
-      <div class="row">
-        <div class="eleven columns">
-          <h2>SOIL MANAGEMENT</h2>
+      <a href="#">
+        <div id="soil-section" class="row" style="height:20em;background:url('./images/front-page-soil.jpg')">
+          <h2 style="padding:1em">SOIL MANAGEMENT</h2>
         </div>
-      </div>
-      <br/>
-      <div class="row">
-        <div class="eleven columns">
-          <h2>CROPS</h2>
+      </a>
+      <a href="crops.php">
+        <div id="crops-section" class="row" style="height:20em;background:url('./images/front-page-crops.jpg')">
+          <h2 style="padding:1em">CROPS</h2>
         </div>
-      </div>
-      <div id="articles_list">
-        <table class="" style="undefined;table-layout: fixed; width: 50%">
-        <colgroup>
-        <col style="width: 100%">
-        </colgroup>
-<?php 
-  $pages_list_query = $mysqli->query("SELECT page_id,page_title,user_real_name FROM page INNER JOIN user ON (page_creator=user_id)");
-  while($pages_entry = $pages_list_query->fetch_assoc()) {
-      echo   '<tr>
-                <td class="tg-s6z3"><a href=articles/'.str_replace(" ", "_", $pages_entry['page_title']).'>'.$pages_entry['page_title'].'</a></td>
-              </tr>';
-  }
-?>
-        </table>
+      </a>
+      <a href="#">
+        <div id="water-section" class="row" style="height:20em;background:url('./images/front-page-water.jpg');background-size:100%;background-position:0 -100px">
+          <h2 style="padding:1em">WATER MANAGEMENT</h2>
         </div>
-        <div id="articles_list">
-        <table class="" style="undefined;table-layout: fixed; width: 50%">
-        <colgroup>
-        <col style="width: 100%">
-        </colgroup>
-<?php 
-  $pages_list_query = $mysqli->query("SELECT page_id,page_title,user_real_name FROM page INNER JOIN user ON (page_creator=user_id)");
-  while($pages_entry = $pages_list_query->fetch_assoc()) {
-      echo   '<tr>
-                <td class="tg-s6z3"><a href=articles/'.str_replace(" ", "_", $pages_entry['page_title']).'>'.$pages_entry['page_title'].'</a></td>
-              </tr>';
-  }
-?>
-        </table>
-        </div>
-        <div class="row">
-        <div class="eleven columns">
-          <h2>WATER MANAGEMENT</h2>
-        </div>
-      </div>
+      </a>
       <br/>
       <br/>
-
     </div>
-
   </div>
   
 
