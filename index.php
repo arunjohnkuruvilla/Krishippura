@@ -1,3 +1,7 @@
+<?php 
+  require_once('./workspace/config.php');
+  require_once("./workspace/initialize_database.php"); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,21 +38,17 @@
         </div>
       </div>
       <br/>
-      <a href="#">
-        <div id="soil-section" class="row" style="height:20em;background:url('./images/front-page-soil.jpg')">
-          <h2 style="padding:1em">SOIL MANAGEMENT</h2>
+<?php 
+$main_categories = $mysqli->query("SELECT * FROM primary_category");
+while($main_categories_list = $main_categories->fetch_assoc()) {
+  echo '<a href="category.php?category='.$main_categories_list['cat_id'].'">
+        <div id="'.$main_categories_list['cat_name'].'-section" class="row" style="height:20em;background:url(./images/front-page-'.$main_categories_list['cat_name'].'.jpg)">
+          <h2 style="padding:1em">'.$main_categories_list['cat_name'].'</h2>
         </div>
-      </a>
-      <a href="crops.php">
-        <div id="crops-section" class="row" style="height:20em;background:url('./images/front-page-crops.jpg')">
-          <h2 style="padding:1em">CROPS</h2>
-        </div>
-      </a>
-      <a href="#">
-        <div id="water-section" class="row" style="height:20em;background:url('./images/front-page-water.jpg');background-size:100%;background-position:0 -100px">
-          <h2 style="padding:1em">WATER MANAGEMENT</h2>
-        </div>
-      </a>
+      </a>';
+}
+
+?>
       <br/>
       <br/>
     </div>

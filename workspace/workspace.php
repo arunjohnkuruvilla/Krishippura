@@ -63,40 +63,35 @@
     		</div>
     		<hr>
     		<div class="row">
-		    		<div class="three columns">
-		    			<input class="button-primary" type="submit" value="Add category">
+    				<h3>Category Management</h3>
+		    		<div class="five columns">
+		    			<a href="workspace/cat/addprimary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Add Primary category</a>
 		    		</div>
-		    		<div class="three columns">
-		    			<input class="button-primary" type="submit" value="Edit category">
+		    		<div class="five columns">
+		    			<a href="workspace/cat/addsecondary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Add Secondary category</a>
 		    		</div>
-		    		<div class="three columns">
-		    			<input class="button-primary" type="submit" value="Delete category">
+		    		<br/>
+		    		<div class="five columns">
+		    			<a href="workspace/cat/renameprimary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Rename Primary category</a>
+		    		</div>
+		    		<div class="five columns">
+		    			<a href="workspace/cat/renamesecondary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Rename Secondary category</a>
+		    		</div>
+		    		<br/>
+		    		<div class="five columns">
+		    			<a href="workspace/cat/deleteprimary.php" class="button" type="submit"  onclick="openCategory(this); return false;" target="_blank">Delete Primary category</a>
+		    		</div>
+		    		<div class="five columns">
+		    			<a href="workspace/cat/deletesecondary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Delete Secondary category</a>
 		    		</div>
 
     		</div>
     		<hr>
     		<div id="articles_list">
-    			<table class="tg" style="undefined;table-layout: fixed; width: 100%">
-					<colgroup>
-						<col style="width: 8%">
-						<col style="width: 40%">
-						<col style="width: 20%">
-						<col style="width: 6%">
-						<col style="width: 6%">
-						<col style="width: 10%">
-						<col style="width: 10%">
-					</colgroup>
-				  	<tr>
-					    <th class="tg-s6z2">Page ID</th>
-					    <th class="tg-s6z2">Page Title</th>
-					    <th class="tg-s6z2">Page Author</th>
-					    <th class="tg-s6z2" colspan="4">Controls</th>
-				  	</tr>
-				</table>
 <?php 
 	$pages_list_query = $mysqli->query("SELECT * FROM page INNER JOIN user ON (page_creator=user_id) WHERE prim_cat = '0' AND sec_cat = '0'");
 	while($pages_entry = $pages_list_query->fetch_assoc()) {
-	   	echo 	'<h2>Uncategorized</h2>
+	   	echo 	'<h4>Uncategorized</h4>
 				<table class="tg" style="undefined;table-layout: fixed; width: 100%">
 					<colgroup>
 						<col style="width: 8%">
@@ -123,7 +118,7 @@
 	while($primary_query_list = $primary_query->fetch_assoc()) {
 		$primary_id = $primary_query_list['cat_id'];
 		$primary_name = $primary_query_list['cat_name'];
-		echo '<h2>'.$primary_name.'</h2>';
+		echo '<h3>'.$primary_name.'</h2>';
 		$secondary_query = $mysqli->query("SELECT * FROM secondary_category WHERE primary_cat = '$primary_id'");
 		while($secondary_query_list = $secondary_query->fetch_assoc()) {
 			$secondary_id = $secondary_query_list['sub_cat'];
