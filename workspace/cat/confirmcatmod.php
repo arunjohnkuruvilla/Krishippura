@@ -7,6 +7,12 @@
 	if($status == 2) {
 		$message = "Secondary Category created successfully";
 	}
+	if($status == 3) {
+		$message = "Primary Category renamed successfully";
+	}
+	if($status == 4) {
+		$message = "Secondary Category renamed successfully";
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,7 +39,12 @@
 
 </head>
 <body>
-<h3><?php echo $message; ?></h3>
+<div class="container">
+	<div class="row">
+		<h4><?php echo $message; ?></h4>
+	</div>
+</div>
+
 <script type="text/javascript" src="scripts/jquery.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -42,7 +53,7 @@
 		}
 
 	// use setTimeout() to execute
-	setTimeout(closepanel, 8000);
+	setTimeout(closepanel, 6000);
 	});
 </script>
 </body>

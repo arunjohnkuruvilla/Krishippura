@@ -36,18 +36,17 @@
 
 	<!-- Navigation Bar -->
  	<?php require("../includes/layout/navbar.php") ?>
-
-  	<div style="padding-top:5rem">
-    	<div class="container">
+    	<div class="container" style="padding-top:5rem">
     		<!--Here we list all the articles for editting and deleting-->
     		<?php 
     			echo $edit_success;
     			echo "<br/><br/>"
     		?>
+    		<!--New Article addition-->
     		<div class="row">
     			<h3>New Article</h3>
     			<!-- Form to add a new article-->
-    			<form action="workspace/workspace.php" method="POST" name="newArticleForm">
+    			<form action="workspace/workspace.php" method="POST" name="newArticleForm" id="newArticleForm">
 		    		<div class="five columns">
 		    			<input class="u-full-width" type="text" placeholder="article name" id="newArticleInput" name="newArticleInput">
 		    		</div>
@@ -61,36 +60,40 @@
 		    		</div>
 		    	</form>
     		</div>
+    		<!--New Article addition ends here-->
     		<hr>
+    		<!--Category Management-->
     		<div class="row">
-    				<h3>Category Management</h3>
-		    		<div class="five columns">
-		    			<a href="workspace/cat/addprimary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Add Primary category</a>
-		    		</div>
-		    		<div class="five columns">
-		    			<a href="workspace/cat/addsecondary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Add Secondary category</a>
-		    		</div>
-		    		<br/>
-		    		<br/>
-		    		<div class="five columns">
-		    			<a href="workspace/cat/renameprimary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Rename Primary category</a>
-		    		</div>
-		    		<div class="five columns">
-		    			<a href="workspace/cat/renamesecondary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Rename Secondary category</a>
-		    		</div>
-		    		<br/>
-		    		<br/>
-		    		<div class="five columns">
-		    			<a href="workspace/cat/deleteprimary.php" class="button" type="submit"  onclick="openCategory(this); return false;" target="_blank">Delete Primary category</a>
-		    		</div>
-		    		<div class="five columns">
-		    			<a href="workspace/cat/deletesecondary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Delete Secondary category</a>
-		    		</div>
-
+    			<h3>Category Management</h3>
+		    	<div class="five columns">
+		    		<a href="workspace/cat/addprimary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Add Primary category</a>
+		    	</div>
+		    	<div class="five columns">
+		    		<a href="workspace/cat/addsecondary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Add Secondary category</a>
+		    	</div>
+		    	<br/>
+		    	<br/>
+		    	<div class="five columns">
+		    		<a href="workspace/cat/renameprimary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Rename Primary category</a>
+		    	</div>
+		    	<div class="five columns">
+		    		<a href="workspace/cat/renamesecondary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Rename Secondary category</a>
+		    	</div>
+		    	<br/>
+		    	<br/>
+		    	<div class="five columns">
+		    		<a href="workspace/cat/deleteprimary.php" class="button" type="submit"  onclick="openCategory(this); return false;" target="_blank">Delete Primary category</a>
+		    	</div>
+		    	<div class="five columns">
+		    		<a href="workspace/cat/deletesecondary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Delete Secondary category</a>
+		    	</div>
     		</div>
+    		<!--Category Management ends here-->
     		<hr>
+    		<!--Article Management-->
     		<div id="articles_list">
 <?php 
+	//Displaying uncategorized articles
 	$pages_list_query = $mysqli->query("SELECT * FROM page INNER JOIN user ON (page_creator=user_id) WHERE prim_cat = '0' AND sec_cat = '0'");
 	while($pages_entry = $pages_list_query->fetch_assoc()) {
 	   	echo 	'<h4>Uncategorized</h4>
@@ -115,16 +118,18 @@
 				  	</tr>
 			 	</table>
 			  	';
-		}
+	}
+
+	//Displaying Articles according to category
 	$primary_query = $mysqli->query("SELECT * FROM primary_category");
 	while($primary_query_list = $primary_query->fetch_assoc()) {
 		$primary_id = $primary_query_list['cat_id'];
 		$primary_name = $primary_query_list['cat_name'];
-		echo '<h3>'.$primary_name.'</h2>';
+		echo '<h3>'.$primary_name.'</h3>';
 		$secondary_query = $mysqli->query("SELECT * FROM secondary_category WHERE primary_cat = '$primary_id'");
 		while($secondary_query_list = $secondary_query->fetch_assoc()) {
 			$secondary_id = $secondary_query_list['sub_cat'];
-			echo '<h4>'.$secondary_query_list['cat_name'].'</h4>';
+			echo '<h5>'.$secondary_query_list['cat_name'].'</h5>';
 			$pages_list_query = $mysqli->query("SELECT * FROM page INNER JOIN user ON (page_creator=user_id) WHERE prim_cat = '$primary_id' AND sec_cat = '$secondary_id'");
 			while($pages_entry = $pages_list_query->fetch_assoc()) {
 		    	echo 		'
@@ -152,18 +157,18 @@
 			}
 		}
 	}
-?>  
-				
-<?php 
-	
-?>
-				  
-				</table>
-    		</div>
-
-    	</div>
-	</div>
+?>    
+    		</div>	<!--Article management ends here-->
+    	</div>		<!--Container ends here-->
+    <script type="text/javascript" src="scripts/jquery.js"></script>
   	<script type="text/javascript">
+  	$('#newArticleForm').submit(function() {
+  		var newArticle = $('#newArticleInput').val();
+  		if(newArticle == "") {
+  			alert("Please enter the new article's name.");
+  			return false;
+  		}
+  	});
 	function openCategory(article) {
 	    var x = screen.width/2 - 700/2;
 	    var y = screen.height/2 - 450/2;
