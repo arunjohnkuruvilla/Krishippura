@@ -71,12 +71,14 @@
 		    			<a href="workspace/cat/addsecondary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Add Secondary category</a>
 		    		</div>
 		    		<br/>
+		    		<br/>
 		    		<div class="five columns">
 		    			<a href="workspace/cat/renameprimary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Rename Primary category</a>
 		    		</div>
 		    		<div class="five columns">
 		    			<a href="workspace/cat/renamesecondary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Rename Secondary category</a>
 		    		</div>
+		    		<br/>
 		    		<br/>
 		    		<div class="five columns">
 		    			<a href="workspace/cat/deleteprimary.php" class="button" type="submit"  onclick="openCategory(this); return false;" target="_blank">Delete Primary category</a>
