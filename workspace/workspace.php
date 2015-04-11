@@ -95,8 +95,7 @@
 <?php 
 	//Displaying uncategorized articles
 	$pages_list_query = $mysqli->query("SELECT * FROM page INNER JOIN user ON (page_creator=user_id) WHERE prim_cat = '0' AND sec_cat = '0'");
-	while($pages_entry = $pages_list_query->fetch_assoc()) {
-	   	echo 	'<h4>Uncategorized</h4>
+	echo 	'<h4>Uncategorized</h4>
 				<table class="tg" style="undefined;table-layout: fixed; width: 100%">
 					<colgroup>
 						<col style="width: 8%">
@@ -106,8 +105,9 @@
 						<col style="width: 6%">
 						<col style="width: 10%">
 						<col style="width: 10%">
-					</colgroup>
-	  				<tr>
+					</colgroup>';
+	while($pages_entry = $pages_list_query->fetch_assoc()) {
+	   	echo 	'<tr>
 					    <td class="tg-s6z2">'.$pages_entry['page_id'].'</td>
 					    <td class="tg-s6z2">'.$pages_entry['page_title'].'</td>
 					    <td class="tg-s6z2">'.$pages_entry['user_real_name'].'</td>
@@ -115,17 +115,16 @@
 					    <td class="tg-s6z2"><a class="button" href="./workspace/editor.php?article='.$pages_entry['page_id'].'" style="width:100%;padding:0">EDIT</a></td>
 					    <td class="tg-s6z2"><a class="button" href="./workspace/recategorize.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" target="_blank" style="width:100%;padding:0">CATEGORIZE</a></td>
 					    <td class="tg-s6z2"><a class="button" href="#" style="width:100%;padding:0">DELETE</a></td>
-				  	</tr>
-			 	</table>
-			  	';
+				  	</tr>';
 	}
+	echo "</table>";
 
 	//Displaying Articles according to category
 	$primary_query = $mysqli->query("SELECT * FROM primary_category");
 	while($primary_query_list = $primary_query->fetch_assoc()) {
 		$primary_id = $primary_query_list['cat_id'];
 		$primary_name = $primary_query_list['cat_name'];
-		echo '<h3>'.$primary_name.'</h3>';
+		echo '<h4>'.$primary_name.'</h4>';
 		$secondary_query = $mysqli->query("SELECT * FROM secondary_category WHERE primary_cat = '$primary_id'");
 		while($secondary_query_list = $secondary_query->fetch_assoc()) {
 			$secondary_id = $secondary_query_list['sub_cat'];

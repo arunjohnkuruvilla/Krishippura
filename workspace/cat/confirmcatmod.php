@@ -13,6 +13,12 @@
 	if($status == 4) {
 		$message = "Secondary Category renamed successfully";
 	}
+	if($status == 5) {
+		$message = "Primary Category deleted successfully";
+	}
+	if($status == 6) {
+		$message = "Secondary Category deleted successfully";
+	}
 ?>
 <!DOCTYPE html>
 <html>
