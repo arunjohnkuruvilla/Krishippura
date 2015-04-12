@@ -5,10 +5,8 @@
 
 	if(isset($_POST['update_changes'])) {
 		$article_id = $_POST['article_id'];
-		$article_content = $_POST['content'];
-    echo $article_id;
+		$article_content = text_unsearchable($_POST['content']);
 		$update_query = $mysqli->query("UPDATE `page` SET `page_content` = '$article_content' WHERE `page_id` = '$article_id'");
-		echo $update_query;
     if($update_query) {
 			header("Location:workspace.php?success=1&article=".$article_id);
 		}
@@ -23,6 +21,7 @@
 
 <html>
 <head>
+  <base href="/" />
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
   <title>Article Preview</title>
@@ -33,11 +32,11 @@
 <body>
 
     <!-- Navigation Bar -->
-    <?php require("./includes/layout/navbar.php") ?>
+    <?php require("../includes/layout/navbar.php") ?>
 
     <div class="container" style="padding-top:5rem;padding-bottom:4rem;height:95%">
     	   
-        <form method="post" action="#" id="article_preview_form" name="article_preview_form">
+        <form method="post" action="workspace/preview.php" id="article_preview_form" name="article_preview_form">
 
           	<!-- This hidden text is where the content in the blob form will be stored for sending to the database.-->   
           	<input type="hidden" id="article_id" name="article_id" value="<?php echo $article_id; ?>">

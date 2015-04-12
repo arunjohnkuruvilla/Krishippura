@@ -18,7 +18,7 @@
     <div id="main_content" class="container" style="padding-top:5rem;padding-bottom:4rem;height:95%"></div>
 
 
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="scripts/jquery.js"></script>
     <script type="text/javascript">
           function getUrlVars() {
           var vars = {};
@@ -48,9 +48,9 @@
 
             for ( i = 1; i < data['sections_count']; i++) {
               tabindex = "tab"+(i+1);
-              navbuttons += '<a class="button article_nav" href="articles/'+first+'#'+tabindex+'">' + data['section_head'][i] + '</a>';
+              navbuttons += '<a class="button article_nav" style="width:auto" href="articles/'+first+'#'+tabindex+'">' + data['section_head'][i] + '</a>';
             };
-            navbuttons += '<br/><br/>';
+            navbuttons += '<br/><br/><br/><br/>';
             container.append(navbuttons);
             i=1;
             tabindex = "tab"+i;

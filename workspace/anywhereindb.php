@@ -39,7 +39,7 @@ session_start();
 	$server = "localhost";
 	$dbuser = "root";
 	$dbpass = "";
-	$dbname = "ragam";
+	$dbname = "prototype";
 	
 	// @name Databse Connection 
 	// @abstract  connected with database. and without showing any error ... 
@@ -72,8 +72,6 @@ session_start();
 		$search_text = mysql_real_escape_string($_POST['search_text']);
 		$result_in_tables = 0;
 		
-		echo '<a href="javascript:hide_all()">Collapse All Result</a> 
-			 <a href="javascript:show_all()">Expand All Result</a>';
 		echo "<h4>Results for: <i>". $search_text.'</i></h4>';
 		
 		// @abstract  table count in the database
@@ -106,9 +104,7 @@ session_start();
 				$search_sql = 'select * from '.$tables[$i]['Tables_in_'.$dbname].' where ';
 				$no_varchar_field = 0;
 				
-				for($j=0;$j<sizeof($collum);$j++)
-				// @abstract only finding each row information
-				{
+
 						## we are searching all the fields in this table
 						
 						//if(substr($collum[$j]['Type'],0,7)=='varchar'|| substr($collum[$j]['Type'],0,7)=='text')
@@ -118,13 +114,12 @@ session_start();
 						//{
 							//echo $collum[$j]->Field .'<br />';
 							if($no_varchar_field!=0){$search_sql .= ' or ' ;}
-							$search_sql .= '`'.$collum[$j]['Field'] .'` like \'%'.$search_text.'%\' ';			
+							$search_sql .= '`page_title` like \'%'.$search_text.'%\' OR `page_content` like \'%'.$search_text.'%\'';			
 							$no_varchar_field++;
 						//} // endof type selection part of query bulidingtype selection part
 						
-				}//@endof for |buliding search query
-				
-				
+
+				//`page_title` like '%super%' or `page_content` like '%super%'
 				if($no_varchar_field>0)
 				// @abstract only main searching part showing the data
 				{
@@ -175,10 +170,6 @@ session_start();
 ?>
 <br/>
 <br/>
-<span  class="me">"AnyWhereInDB" is a Open Source Project, developed by <a href="http://twitter.com/happy56">Nafis Ahmad</a>. 
-<br /> 
-<a href="http://code.google.com/p/anywhereindb">http://code.google.com/p/anywhereindb </a>
-</span>
 </body>
 </html>
 <?php

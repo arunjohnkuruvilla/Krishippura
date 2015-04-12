@@ -1,5 +1,5 @@
 <?php 
-require_once("./workspace/config.php");
+/*require_once("./workspace/config.php");
 require_once("./workspace/initialize_database.php"); 
 
 echo "INSERT INTO `prototype`.`category` (`cat_id`, `primary_cat`, `sub_cat`, `cat_name`) VALUES ('2', '1', 'B', 'Flowers');";
@@ -63,6 +63,8 @@ echo "<br/>";
 $text = link_to_text($text);
 echo $text;*/
 
-
+$var = "Once upon a time in a dense forest Superman lived greatly ever after forever evermore";
+    $word = preg_quote("Superman");
+    $text = preg_match("~\b(.{0,10})($word)([a-zA-Z ]*)\b~", $var, $matches);
+    echo $matches[0];
 ?>
-

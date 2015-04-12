@@ -36,3 +36,11 @@ border-top: 1px solid #eee;
 .article_nav {
   margin: 10px;
 }
+
+.false {
+	color:red;
+}
+
+.false:hover {
+	color:red;
+}

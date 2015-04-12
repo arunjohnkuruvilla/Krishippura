@@ -63,7 +63,7 @@ $mysqli->close();
     	   Article ID: <b><?php echo $eventcode; ?></b>
          <br/>
          Article Title: <b><?php echo $page_name; ?></b>
-        <form method="post" action="preview.php?article=<?php echo $eventcode;?>" id="event_form" name="event_form">
+        <form method="post" action="workspace/preview.php?article=<?php echo $eventcode;?>" id="event_form" name="event_form">
           
           <br/>
           <br/>
