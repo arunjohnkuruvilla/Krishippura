@@ -1,8 +1,8 @@
 <?php
 // this is where content is entered for the appropriate event using an HTML editor.
 // content from the database will be filled in hidden text boxes and then populated to sections and other
-require_once('config.php');
-require_once("initialize_database.php");
+require_once('../config.php');
+require_once("../initialize_database.php");
 $eventcode = "";
 /*if (isset($_SESSION["type"])) {
   // only accessible to managers and proofreaders
@@ -55,7 +55,7 @@ $mysqli->close();
 <body>
 
     <!-- Navigation Bar -->
-    <?php include("../includes/layout/navbar.php") ?>
+    <?php include("../../includes/layout/navbar.php") ?>
 
     <div class="container" style="padding-top:5rem;padding-bottom:4rem;height:95%">
         <!-- If proofreader then 'Go back' option is present so as to allow the proofreader
@@ -63,7 +63,7 @@ $mysqli->close();
     	   Article ID: <b><?php echo $eventcode; ?></b>
          <br/>
          Article Title: <b><?php echo $page_name; ?></b>
-        <form method="post" action="workspace/preview.php?article=<?php echo $eventcode;?>" id="event_form" name="event_form">
+        <form method="post" action="<?php echo $article_link; ?>preview.php?article=<?php echo $eventcode;?>" id="event_form" name="event_form">
           
           <br/>
           <br/>

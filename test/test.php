@@ -67,4 +67,5 @@ $var = "Once upon a time in a dense forest Superman lived greatly ever after for
     $word = preg_quote("Superman");
     $text = preg_match("~\b(.{0,10})($word)([a-zA-Z ]*)\b~", $var, $matches);
     echo $matches[0];
+    echo $_SERVER['SERVER_NAME'];
 ?>

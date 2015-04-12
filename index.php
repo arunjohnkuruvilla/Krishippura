@@ -36,7 +36,7 @@
       <div class="twelve columns">
         <form name="searchForm" id="searchForm">
           <input class="u-full-width eleven columns" type="text" placeholder="Start searching..." id="searchInput">
-          <div>
+          <div id="primary_cat">
           <select id="primary_select" name="primary_select">    <!--Selection of primary category-->
 <?php 
 
@@ -117,8 +117,8 @@ while($main_categories_list = $main_categories->fetch_assoc()) {
         else {
           for(i=0; i < data.length; i++) {
             content += "<li>";
-            content += "<h5>" + data[i].title + "</h5>";
-            content += "<h6>" + data[i].content + "</h6>";
+            content += '<h6><a href="articles/'+ data[i].link + '">' + data[i].title + '</a></h6>';
+            content += "<p>" + data[i].content + "</p>";
             content += "</li>";
           }
         }

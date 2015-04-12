@@ -1,6 +1,6 @@
 <?php 
-  require_once('./config.php');
-	require_once("./initialize_database.php");
+  require_once('../config.php');
+	require_once("../initialize_database.php");
   require_once("./functions.php");
 
 	if(isset($_POST['update_changes'])) {
@@ -8,7 +8,7 @@
 		$article_content = text_unsearchable($_POST['content']);
 		$update_query = $mysqli->query("UPDATE `page` SET `page_content` = '$article_content' WHERE `page_id` = '$article_id'");
     if($update_query) {
-			header("Location:workspace.php?success=1&article=".$article_id);
+			header("Location:../workspace.php?success=1&article=".$article_id);
 		}
 	}
 	else {
@@ -32,11 +32,11 @@
 <body>
 
     <!-- Navigation Bar -->
-    <?php require("../includes/layout/navbar.php") ?>
+    <?php include("../../includes/layout/navbar.php") ?>
 
     <div class="container" style="padding-top:5rem;padding-bottom:4rem;height:95%">
     	   
-        <form method="post" action="workspace/preview.php" id="article_preview_form" name="article_preview_form">
+        <form method="post" action="<?php echo $article_link?>preview.php" id="article_preview_form" name="article_preview_form">
 
           	<!-- This hidden text is where the content in the blob form will be stored for sending to the database.-->   
           	<input type="hidden" id="article_id" name="article_id" value="<?php echo $article_id; ?>">
@@ -67,10 +67,5 @@ while($i < $sections_count) {
 }
 ?>
     </div>
-      <footer class="footer">
-    <div class="container">
-    Copyright. All rights reserved.   
-    </div>
-  </footer>
 </body>
 </html>

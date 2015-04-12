@@ -1,7 +1,7 @@
 <?php
   	require_once('../workspace/config.php');
 	require_once('../workspace/initialize_database.php');
-  	require_once('../workspace/functions.php');
+  	require_once($article_link.'functions.php');
 
   	$arr = array();								//Array to hold the JSON
 
@@ -44,6 +44,7 @@
   			while($search_results = $search_database->fetch_assoc()) {
 			  	$entry = array();
 		  		$entry['title'] = $search_results['page_title'];
+		  		$entry['link'] = str_replace(" ", "_", $search_results['page_title']);
 
 		  		$content = $search_results['page_content'];
 		  		$word = preg_quote($query);

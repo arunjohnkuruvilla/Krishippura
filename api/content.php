@@ -1,7 +1,7 @@
 <?php
 	require_once('../workspace/config.php');
 	require_once('../workspace/initialize_database.php');
-	require_once('../workspace/functions.php');
+	require_once('../workspace/article/functions.php');
 
 	$article_name = str_replace("_", " ", $_GET['page']);
 

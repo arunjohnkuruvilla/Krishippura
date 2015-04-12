@@ -5,31 +5,31 @@
 	if(isset($_GET['success']) && isset($_GET['article'])) {
 		$edit_success = "Article ".$_GET['article']." edited successfully";
 	}
-	require ("./addarticle.php");
+	require ($article_link."addarticle.php");
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<base href="/" />
-  <meta charset="utf-8">
-  <title>Workspace</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+  	<meta charset="utf-8">
+  	<title>Workspace</title>
+  	<meta name="description" content="">
+  	<meta name="author" content="">
 
-  <!-- Mobile Specific Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<!-- Mobile Specific Metas -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  	<!-- FONT -->
+  	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="stylesheet" href="css/custom.css">
+  	<!-- CSS -->
+  	<link rel="stylesheet" href="css/normalize.css">
+  	<link rel="stylesheet" href="css/skeleton.css">
+  	<link rel="stylesheet" href="css/custom.css">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="">
+  	<!-- Favicon -->
+  	<link rel="icon" type="image/png" href="">
 
 </head>
 <body>
@@ -98,13 +98,14 @@
 	echo 	'<h4>Uncategorized</h4>
 				<table class="tg" style="undefined;table-layout: fixed; width: 100%">
 					<colgroup>
-						<col style="width: 8%">
+						<col style="width: 6%">
 						<col style="width: 40%">
 						<col style="width: 20%">
-						<col style="width: 6%">
-						<col style="width: 6%">
+						<col style="width: 5%">
+						<col style="width: 5%">
+						<col style="width: 7%">
 						<col style="width: 10%">
-						<col style="width: 10%">
+						<col style="width: 7%">
 					</colgroup>';
 	while($pages_entry = $pages_list_query->fetch_assoc()) {
 	   	echo 	'<tr>
@@ -112,8 +113,9 @@
 					    <td class="tg-s6z2">'.$pages_entry['page_title'].'</td>
 					    <td class="tg-s6z2">'.$pages_entry['user_real_name'].'</td>
 					    <td class="tg-s6z2"><a class="button" href="articles/'.str_replace(" ", "_", $pages_entry['page_title']).'" style="width:100%;padding:0">VIEW</a></td>
-					    <td class="tg-s6z2"><a class="button" href="./workspace/editor.php?article='.$pages_entry['page_id'].'" style="width:100%;padding:0">EDIT</a></td>
-					    <td class="tg-s6z2"><a class="button" href="./workspace/recategorize.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" target="_blank" style="width:100%;padding:0">CATEGORIZE</a></td>
+					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'editor.php?article='.$pages_entry['page_id'].'" style="width:100%;padding:0">EDIT</a></td>
+					    <td class="tg-s6z2"><a class="button" href="#" style="width:100%;padding:0">RENAME</a></td>
+					    <td class="tg-s6z2"><a class="button" href="./workspace/article/recategorize.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" target="_blank" style="width:100%;padding:0">CATEGORIZE</a></td>
 					    <td class="tg-s6z2"><a class="button" href="#" style="width:100%;padding:0">DELETE</a></td>
 				  	</tr>';
 	}
