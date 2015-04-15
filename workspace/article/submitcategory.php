@@ -1,6 +1,6 @@
 <?php 
-	require_once('./config.php');
-	require_once('./initialize_database.php');
+	require_once('../config.php');
+	require_once('../initialize_database.php');
 	if(isset($_GET['primary_select']) && isset($_GET['secondary_select'])) {
 		$article = $_GET['article'];
 		$primary_cat = $_GET['primary_select'];

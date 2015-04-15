@@ -16,7 +16,4 @@ function _exit($s="") {
     $mysqli->close();
     exit($s);
 }
-
-session_start();
-
 ?>

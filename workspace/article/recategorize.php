@@ -1,6 +1,6 @@
 <?php 
-	require_once('./config.php');
-	require_once('./initialize_database.php');
+	require_once('../config.php');
+	require_once('../initialize_database.php');
 	$primary_cat = "";
 	$secondary_cat = "";
 	if(isset($_GET['article'])) {
@@ -37,7 +37,7 @@
     	<div class="container">
     		<h3>Categories</h3>
     		<!--Form for categorization of articles-->
-    		<form action="workspace/submitcategory.php" method="GET" name="categorizeForm" id="categorizeForm">
+    		<form action="<?php echo $article_link; ?>submitcategory.php" method="GET" name="categorizeForm" id="categorizeForm">
     			<input name="article" value="<?php echo $article; ?>" type="hidden"/>
 	    		<div id="primary_cat">
 	    			<?php echo $primary_cat;
