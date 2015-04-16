@@ -16,19 +16,20 @@
 	$desc = "Introduction||ttl||".$desc;
 	$desc = text_to_external_link(text_to_link($desc));
 	$sections = explode("||sec||", $desc);
-	$arr['sections_count']=count($sections);
+	$arr['sections_count'] = count($sections);
 	$j=count($sections);
 	$i=0; 
 	while($i<$j)
 	{
-		$indexa="tab".($i+1);
+		$indexa = "tab".($i+1);
 		//$content[$i] = preg_replace('/src=\"/', 'src="http://www.tathva.org/organiser/', $content[$i]);
 		$tabsplit = explode("||ttl||", $sections[$i]);
 		$arr["section_head"][$i] = $tabsplit[0];
-		$arr[$indexa][0]=$tabsplit[0];
-		$arr[$indexa][1]=$tabsplit[1];
-		$i=$i+1;
+		$arr[$indexa][0] = $tabsplit[0];
+		$arr[$indexa][1] = $tabsplit[1];
+		$i = $i + 1;
 	}
+	$arr['pdf'] = $row['pdf_status'];
 	$json=json_encode($arr);
 	print_r($json);
 ?>

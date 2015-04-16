@@ -1,6 +1,7 @@
 <?php 
 	require_once('./config.php');
 	require_once("./initialize_database.php");
+	session_start();
 	$edit_success = "";
 	if(isset($_GET['success']) && isset($_GET['article'])) {
 		$edit_success = "Article ".$_GET['article']." edited successfully";
@@ -36,7 +37,7 @@
 
 	<!-- Navigation Bar -->
  	<?php require("../includes/layout/navbar.php") ?>
-    	<div class="container" style="padding-top:5rem">
+    	<div class="container">
     		<!--Here we list all the articles for editting and deleting-->
     		<?php 
     			echo $edit_success;
@@ -84,8 +85,8 @@
 						    <td class="tg-s6z2">'.$unapproved_result['user_id'].'</td>
 						    <td class="tg-s6z2">'.$unapproved_result['user_real_name'].'</td>
 						    <td class="tg-s6z2">'.$unapproved_result['user_email'].'</td>
-						    <td class="tg-s6z2"><a class="button" href="#" style="width:100%;padding:0">APPROVE</a></td>
-						    <td class="tg-s6z2"><a class="button" href="#" style="width:100%;padding:0">REJECT</a></td>
+						    <td class="tg-s6z2"><a class="button" href="./workspace/user/execute.php?execute=approve&id='.$unapproved_result['user_id'].'" style="width:100%;padding:0">APPROVE</a></td>
+						    <td class="tg-s6z2"><a class="button" href="./workspace/user/execute.php?execute=delete&id='.$unapproved_result['user_id'].'" style="width:100%;padding:0">REJECT</a></td>
 					  	</tr>';
 						}
 					echo '</table>';
@@ -135,25 +136,27 @@
 	echo 	'<h4>Uncategorized</h4>
 				<table class="tg" style="undefined;table-layout: fixed; width: 100%">
 					<colgroup>
-						<col style="width: 6%">
+						<col style="width: 3%">
 						<col style="width: 40%">
-						<col style="width: 20%">
-						<col style="width: 5%">
-						<col style="width: 5%">
-						<col style="width: 7%">
-						<col style="width: 10%">
-						<col style="width: 7%">
+						<col style="width: 25%">
+						<col style="width: 3%">
+						<col style="width: 4%">
+						<col style="width: 4%">
+						<col style="width: 6%">
+						<col style="width: 9%">
+						<col style="width: 6%">
 					</colgroup>';
 	while($pages_entry = $pages_list_query->fetch_assoc()) {
 	   	echo 	'<tr>
 					    <td class="tg-s6z2">'.$pages_entry['page_id'].'</td>
 					    <td class="tg-s6z2">'.$pages_entry['page_title'].'</td>
 					    <td class="tg-s6z2">'.$pages_entry['user_real_name'].'</td>
+					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'uploadpdf.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:100%;padding:0">PDF</a></td>
 					    <td class="tg-s6z2"><a class="button" href="articles/'.str_replace(" ", "_", $pages_entry['page_title']).'" style="width:100%;padding:0">VIEW</a></td>
 					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'editor.php?article='.$pages_entry['page_id'].'" style="width:100%;padding:0">EDIT</a></td>
-					    <td class="tg-s6z2"><a class="button" href="#" style="width:100%;padding:0">RENAME</a></td>
-					    <td class="tg-s6z2"><a class="button" href="./workspace/article/recategorize.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" target="_blank" style="width:100%;padding:0">CATEGORIZE</a></td>
-					    <td class="tg-s6z2"><a class="button" href="#" style="width:100%;padding:0">DELETE</a></td>
+					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'rename.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:100%;padding:0">RENAME</a></td>
+					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'recategorize.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" target="_blank" style="width:100%;padding:0">CATEGORIZE</a></td>
+					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'execute.php?execute=delete&article='.$pages_entry['page_id'].'" style="width:100%;padding:0">DELETE</a></td>
 				  	</tr>';
 	}
 	echo "</table>";
@@ -173,24 +176,26 @@
 		    	echo 		'
 		    				<table class="tg" style="undefined;table-layout: fixed; width: 100%">
 								<colgroup>
-									<col style="width: 6%">
+									<col style="width: 3%">
 									<col style="width: 40%">
-									<col style="width: 20%">
-									<col style="width: 5%">
-									<col style="width: 5%">
-									<col style="width: 7%">
-									<col style="width: 10%">
-									<col style="width: 7%">
+									<col style="width: 25%">
+									<col style="width: 3%">
+									<col style="width: 4%">
+									<col style="width: 4%">
+									<col style="width: 6%">
+									<col style="width: 9%">
+									<col style="width: 6%">
 								</colgroup>
 		    				<tr>
 							    <td class="tg-s6z2">'.$pages_entry['page_id'].'</td>
 							    <td class="tg-s6z2">'.$pages_entry['page_title'].'</td>
 							    <td class="tg-s6z2">'.$pages_entry['user_real_name'].'</td>
+							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'uploadpdf.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:100%;padding:0">PDF</a></td>
 							    <td class="tg-s6z2"><a class="button" href="articles/'.str_replace(" ", "_", $pages_entry['page_title']).'" style="width:100%;padding:0">VIEW</a></td>
 							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'editor.php?article='.$pages_entry['page_id'].'" style="width:100%;padding:0">EDIT</a></td>
-							    <td class="tg-s6z2"><a class="button" href="#" style="width:100%;padding:0">RENAME</a></td>
+							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'rename.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:100%;padding:0">RENAME</a></td>
 							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'recategorize.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" target="_blank" style="width:100%;padding:0">CATEGORIZE</a></td>
-							    <td class="tg-s6z2"><a class="button" href="#" style="width:100%;padding:0">DELETE</a></td>
+							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'execute.php?execute=delete&article='.$pages_entry['page_id'].'" style="width:100%;padding:0">DELETE</a></td>
 						  	</tr>
 						 	</table>
 						  	';

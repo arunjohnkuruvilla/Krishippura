@@ -7,9 +7,10 @@
       $username = $_POST['usernameLogin'];
       $password = $_POST['passwordLogin'];
       $user_check = $mysqli->query("SELECT * FROM user WHERE user_name = '$username' AND user_password = '$password' AND user_status = 1");
+      $user_result = $user_check->fetch_assoc();
       if($user_check->num_rows == 1) {
         session_start();
-        $_SESSION['user_id'] = 1;
+        $_SESSION['user_id'] = $user_result['user_id'];
         header("Location: ./workspace.php");
       }
       else {

@@ -46,6 +46,9 @@
             var container = $("#main_content");
             container.append("<h2>"+data['title']+"</h2>");
 
+            if(data['pdf']) {
+              container.append('<a href="pdf/'+ first +'.pdf" target="_blank">Click here to read the article in Malayalam</a><br/>');
+            }
             for ( i = 1; i < data['sections_count']; i++) {
               tabindex = "tab"+(i+1);
               navbuttons += '<a class="button article_nav" style="width:auto" href="articles/'+first+'#'+tabindex+'">' + data['section_head'][i] + '</a>';
