@@ -64,22 +64,35 @@
     <br/>
 
     <!--Category-wise listing-->
-<?php 
-$main_categories = $mysqli->query("SELECT * FROM primary_category");
-while($main_categories_list = $main_categories->fetch_assoc()) {
-  echo '<a href="category.php?category='.$main_categories_list['cat_id'].'">
-        <div id="'.$main_categories_list['cat_name'].'-section" class="row" style="height:20em;background:url(./images/front-page-'.$main_categories_list['cat_name'].'.jpg)">
-          <h2 style="padding:1em">'.$main_categories_list['cat_name'].'</h2>
-        </div>
-      </a>';
-}
+    <div id="primary"></div>
 
-?>
     <br/>
     <br/>
   </div>
   <script type="text/javascript" src="scripts/jquery.js"></script>
   <script type="text/javascript">
+  $.ajax({
+    type: 'GET',
+    url: "api/primary.php",
+    async: false,
+    contentType: "application/json",
+    dataType: 'json',
+    success: function(data) {
+      var i;
+      var menuContent = "";
+      for(i = 0; i < data.length; i++) {
+        menuContent += '<a href="' + data[i]['link'] + '">';
+        menuContent += '<div id="' + data[i]['name'] + '-section" class="row" style="height:20em;background:url(./images/front-page-'+ data[i]['image'] +'.jpg)">';
+        menuContent += '<h2 style="padding:1em;">' + data[i]['name'] + '</h2>';
+        menuContent += '</div>';
+        menuContent += '</a>';
+      }
+      $('#primary').html(menuContent);
+    },
+    error: function(jqXHR, textStatus) {
+      alert(textStatus);
+    }
+  });
   $('#searchForm').submit(function() {
     var searchQuery = $('#searchInput').val();
     var primCat = $('#primary_select').val();

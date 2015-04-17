@@ -1,22 +1,9 @@
 <?php
 // this is where content is entered for the appropriate event using an HTML editor.
-// content from the database will be filled in hidden text boxes and then populated to sections and other
+// content from the database will be filled in hidden text boxes and then populated to sections 
 require_once('../config.php');
 require_once("../initialize_database.php");
 $eventcode = "";
-/*if (isset($_SESSION["type"])) {
-  // only accessible to managers and proofreaders
-  if ($_SESSION["type"] == 'MN' || $_SESSION["type"] == 'PR') {
-    if (isset($_SESSION["ecode"]))
-      $eventcode = $_SESSION["ecode"];
-    else // event code not set!
-      _exit("Please go back and try again!");
-  } else
-    _exit("You don't have permission!");
-} else {
-  header("Location: $start_page");
-  _exit();
-}*/
 
 $eventcode = $_GET['article'];
 
@@ -57,9 +44,7 @@ $mysqli->close();
     <!-- Navigation Bar -->
     <?php include("../../includes/layout/navbar.php") ?>
 
-    <div class="container" style="padding-top:5rem;padding-bottom:4rem;height:95%">
-        <!-- If proofreader then 'Go back' option is present so as to allow the proofreader
-            to go back and switch the event content to proofread--> 
+    <div class="container" style="padding-top:5rem;padding-bottom:4rem;height:95%"> 
     	   Article ID: <b><?php echo $eventcode; ?></b>
          <br/>
          Article Title: <b><?php echo $page_name; ?></b>
@@ -68,10 +53,7 @@ $mysqli->close();
           <br/>
           <br/>
           
-
-          <!-- This hidden text is where the longdesc from the database is populated.-->
-          <!-- This content is then split and populated into various sections by creating them dynamically-->  
-          <!-- All of which is done using Jquery and Javascript-->    
+          <input type="hidden" id="preserve" name="preserve" value="<?php echo str_replace('"', '&quot;', $content);?>" />
           <input type="hidden" id="desc" name="content" value="<?php echo str_replace('"', '&quot;', $content);?>" />
 
             <!-- update button -->

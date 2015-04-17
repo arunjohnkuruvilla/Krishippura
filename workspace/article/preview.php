@@ -11,10 +11,26 @@
 			header("Location:../workspace.php?success=1&article=".$article_id);
 		}
 	}
+  if(isset($_POST['back_to_edit'])) {
+    $article_id = $_POST['article_id'];
+    header("Location: editor.php?article=".$article_id);
+  }
 	else {
 		$article_id = $_GET['article'];
-		$article_content = $_POST['content']; 	//this will hold the content to be sent to the database
-		$article_display = text_to_external_link(text_to_link($article_content)); 	//this will be the content that we will parse to display.
+    $article_content_old = $_POST['preserve'];
+    $article_content = $_POST['content'];   //this will hold the content to be sent to the database
+    $article_display = text_to_external_link(text_to_link($article_content));   //this will be the content that we will parse to display.
+    $flag = 1;
+
+    //Checking if the article has been modified by someone else since it has been taken up for editting
+    $check_change = $mysqli->query("SELECT page_content FROM page WHERE page_id = '$article_id'");
+    $check_change_result = $check_change->fetch_assoc();
+    if($check_change_result['page_content'] == $article_content_old) {
+      $flag = 1;
+    }
+    else {
+      $flag = 0;
+    }
   }
 ?>
 <!DOCTYPE html>
@@ -43,8 +59,23 @@
           	<input type="hidden" id="content" name="content" value="<?php echo str_replace('"', '&quot;', $article_content);?>" />
 
             <!-- update button -->
-            <input name="update_changes" type="submit" value="Save All Changes" />
-            <input name="cancel_changes" type="submit" value="Discard Changes" />
+            <?php 
+            if($flag) {
+              echo '
+              <input name="update_changes" type="submit" value="Save All Changes" />
+              <input name="cancel_changes" type="submit" value="Discard Changes" />
+              ';
+            }
+            else {
+              echo '
+              <p>The base article has been changed. Please go back and modify your edits accordingly</p>
+              <input name="update_changes" type="submit" value="Save All Changes" disabled/>
+              <input name="back_to_edit" type="submit" value="Back to editor" />
+              <input name="cancel_changes" type="submit" value="Discard Changes" />
+              ';
+            }
+            ?>
+            
         </form>
 <?php
     echo "Article ID : <b>".$article_id."</b> <br/>";
