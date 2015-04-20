@@ -7,10 +7,11 @@
 	$arr = array();
 	while($primary_result = $primary_query->fetch_assoc()) {
 		$entry = array();
+		$entry['id'] = $primary_result['cat_id'];
 		$entry['name'] = $primary_result['cat_name'];
-		$entry['image'] = $primary_result['cat_name'];
+		$entry['image'] = str_replace(" ", "_", $primary_result['cat_name']);
 		switch ($entry['name']) {
-			case 'Soil':
+			case 'Soil Management':
 				$entry['link'] = "landmarks.php";
 				break;
 			default:

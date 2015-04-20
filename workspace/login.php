@@ -4,13 +4,15 @@
   $error = "";
   if(isset($_POST['login'])){
     if(isset($_POST['usernameLogin']) AND isset($_POST['passwordLogin']) AND $_POST['usernameLogin'] != "" AND $_POST['passwordLogin'] != "") {
-      $username = $_POST['usernameLogin'];
-      $password = $_POST['passwordLogin'];
+      $username = htmlspecialchars($_POST['usernameLogin']);
+      $password = htmlspecialchars($_POST['passwordLogin']);
       $user_check = $mysqli->query("SELECT * FROM user WHERE user_name = '$username' AND user_password = '$password' AND user_status = 1");
       $user_result = $user_check->fetch_assoc();
       if($user_check->num_rows == 1) {
         session_start();
         $_SESSION['user_id'] = $user_result['user_id'];
+        $_SESSION['login'] = substr(md5('appletree'), 0, 20);
+        $_SESSION['usertype'] = md5('editor');
         header("Location: ./workspace.php");
       }
       else {

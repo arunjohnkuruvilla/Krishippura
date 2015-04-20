@@ -1,8 +1,10 @@
 <?php
 // this is where content is entered for the appropriate event using an HTML editor.
 // content from the database will be filled in hidden text boxes and then populated to sections 
+require_once('../authenticate.php');
 require_once('../config.php');
 require_once("../initialize_database.php");
+require_once("./functions.php");
 $eventcode = "";
 
 $eventcode = $_GET['article'];
@@ -14,7 +16,8 @@ $row=$result->fetch_assoc();
 if($row)
 {
     $page_name=$row['page_title'];
-    $content=$row['page_content'];
+    $content_to_preserve = $row['page_content'];
+    $content=text_searchable($row['page_content']);
     $result->free();
 }
 $mysqli->close();
@@ -40,35 +43,33 @@ $mysqli->close();
 </head>
 
 <body>
+  <!-- Navigation Bar -->
+  <?php include("../../includes/layout/navbar.php") ?>
 
-    <!-- Navigation Bar -->
-    <?php include("../../includes/layout/navbar.php") ?>
-
-    <div class="container" style="padding-top:5rem;padding-bottom:4rem;height:95%"> 
-    	   Article ID: <b><?php echo $eventcode; ?></b>
-         <br/>
-         Article Title: <b><?php echo $page_name; ?></b>
-        <form method="post" action="<?php echo $article_link; ?>preview.php?article=<?php echo $eventcode;?>" id="event_form" name="event_form">
+  <div class="container" style="padding-top:5rem;padding-bottom:4rem;height:95%"> 
+    Article ID: <b><?php echo $eventcode; ?></b>
+    <br/>
+    Article Title: <b><?php echo $page_name; ?></b>
+    <br/>
+    
+    <form method="post" action="<?php echo $article_link; ?>preview.php?article=<?php echo $eventcode;?>" id="event_form" name="event_form">
+      <input type="hidden" id="preserve" name="preserve" value="<?php echo str_replace('"', '&quot;', $content_to_preserve);?>" />
+      <input type="hidden" id="desc" name="content" value="<?php echo str_replace('"', '&quot;', $content);?>" />
           
-          <br/>
-          <br/>
-          
-          <input type="hidden" id="preserve" name="preserve" value="<?php echo str_replace('"', '&quot;', $content);?>" />
-          <input type="hidden" id="desc" name="content" value="<?php echo str_replace('"', '&quot;', $content);?>" />
+      <!-- update button -->
+      <input name="update" type="submit" value="Update" />
+      <input name="cancel_changes" type="submit" value="Discard Changes" />
+    </form>
 
-            <!-- update button -->
-            <input name="update" type="submit" value="Update" />
-            <input name="cancel_changes" type="submit" value="Discard Changes" />
-        </form>
-        <div class="row">
-            <div class="main">
-                <h5>Introduction</h5>
-                <textarea id="intro" name="intro"></textarea>
-                <!-- button for adding new sections -->  
-                <a href="javascript:void(0)" id="new_sec" class="button">Add a Section</a>
-                <a href="#" class="button">Go to Top</a>
-            </div>
-        </div>
+    <div class="row">
+      <div class="main">
+        <h5>Introduction</h5>
+        <textarea id="intro" name="intro"></textarea>
+        <!-- button for adding new sections -->  
+        <a href="javascript:void(0)" id="new_sec" class="button">Add a Section</a>
+        <a href="#" class="button">Go to Top</a>
+      </div>
     </div>
+   </div>
 </body>
 </html>

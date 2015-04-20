@@ -48,12 +48,18 @@
 
 		  		$content = $search_results['page_content'];
 		  		$word = preg_quote($query);
-		  		$text = preg_match_all("~\b([a-zA-Z ]{0,10})($word)([a-zA-Z ]{0,20})\b~", $content, $matches);
+		  		$text = preg_match_all("/[a-zA-Z ]{0,10}($word)[a-zA-Z ]{0,10}/i", $content, $matches);
 
 		  		if($text == 0) continue;
 		  		$entry['content'] = '...'.$matches[0][0].'...';
 		  		array_push($arr, $entry);
 		  	}
+        if(count($arr) == 0) {
+          $entry = array();
+          $entry['title'] = 0;
+          $entry['content'] = "No results found...";
+          array_push($arr, $entry);
+        }
   		} 
   	}
   	else {

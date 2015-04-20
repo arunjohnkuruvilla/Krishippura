@@ -29,10 +29,9 @@ input[type=text] {
 	border: 1px solid #777;
 	border-radius: 3px;
 	background-color:#fff;
-	width:8%;
 	height: 25px;
 	text-align: center;
-	padding-top: 5px;
+	padding: 5px;
 	float: left;
 	margin: 2px 2px 8px;
 }
@@ -72,7 +71,6 @@ input[type=text] {
 }
 .kaja-input .help-view {
 	font-size: 12px;
-	color: #fff;
 }
 .left {
 	position: fixed;
@@ -149,7 +147,7 @@ a
 }
 .ax-uploader input[type=button] {
 	margin: 0 0 0 10px;
-	width: 80px;
+	background-color: #fff;
 }
 .ax-legend { display: none; }
 .ax-browse { display: none; }
@@ -171,7 +169,7 @@ a
 	width: 585px;
 }
 .ax-file-list li {
-	background-color: rgba(255,255,255,0.6);
+	background-color: rgba(255,255,255,1);
 	text-align:center;
 	margin: 0 2px 2px 0;
 	padding: 6px 6px 4px;

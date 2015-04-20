@@ -544,8 +544,8 @@
     
     var globalSettings = 
     {
-    	remotePath : 	'js/',						//remote upload path, can be set also in the php upload script
-    	url:			'upload.php',				//php/asp/jsp upload script
+    	remotePath : 	'images/articles/',			//remote upload path, can be set also in the php upload script
+    	url:			'uploader.php',				//php/asp/jsp upload script
     	data:			'',							//other user data to send in GET to the php script
     	async:			true,						//set asyncron upload or not
     	maxFiles:		9999,						//max number of files can be selected

@@ -63,9 +63,8 @@ echo "<br/>";
 $text = link_to_text($text);
 echo $text;*/
 
-$var = "Once upon a time in a dense forest Superman lived greatly ever after forever evermore";
+$var = "Once upon a time in a dense forest Superman lived greatly ever after forever evermore --http://www.example.com++Link title--";
     $word = preg_quote("Superman");
-    $text = preg_match("~\b(.{0,10})($word)([a-zA-Z ]*)\b~", $var, $matches);
-    echo $matches[0];
-    echo $_SERVER['SERVER_NAME'];
+    $text = preg_match("/--[a-zA-Z\+\.:\/ ]*--/", $var, $matches);
+    echo count($matches[0]);
 ?>

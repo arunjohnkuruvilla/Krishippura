@@ -1,5 +1,7 @@
 // Ref: http://stackoverflow.com/questions/401593/understanding-what-goes-on-with-textarea-selection-with-javascript
+var imagesSrc = "images/articles";
 (function ($) {
+	
   $.fn.get_selection = function () {
   var e = this.get(0);
   if('selectionStart' in e) { //Mozilla and DOM 3.0
@@ -312,7 +314,7 @@ function ins_img_click() {
   var d = $("<div />").appendTo(ki);
   d.ajaxupload({ /* also adds ax-uploader class to d */
 	url:'uploader.php',
-	remotePath:'pictures/',
+	remotePath:'images/articles/',
 	maxFiles: 1,
 	maxFileSize: '2M',
 	allowExt:['jpg','png'],
@@ -327,7 +329,7 @@ function ins_img_click() {
 	  u.ajaxupload('destroy');
 	  var src = u.closest(".kaja-input").children("textarea").get(0),
 		  sel = $(src).get_selection(),
-		  itag = "<img src=\"/pictures/"+img+"\" alt=\""+files[0]+"\"/>";
+		  itag = "<img src=\"/"+ imagesSrc +"/"+img+"\" alt=\""+files[0]+"\"/>";
 	  src.value = src.value.substring(0, sel.start) + itag + src.value.substring(sel.end);
 	  $(src).set_selection(sel.start,sel.start+itag.length);
 	  update_preview(src);

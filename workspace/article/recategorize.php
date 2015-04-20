@@ -6,6 +6,28 @@
 	if(isset($_GET['article'])) {
 		$article = $_GET['article'];
 	}
+	if(isset($_POST['recategorizeSubmit'])) {
+		$article = $_POST['article'];
+		$primary_cat = $_POST['primary_select'];
+		$secondary_cat = $_POST['secondary_select'];
+		$change_category = $mysqli->query("UPDATE page SET prim_cat = '$primary_cat', sec_cat = '$secondary_cat' WHERE page_id = '$article'");
+		if($change_category) {
+			header("Location: ./confirm.php?status=3");
+		}
+		else {
+			$error = "Recatorgization Failed";
+		}
+	}
+	if(isset($_POST['uncategorizeSubmit'])) {
+		$article = $_POST['article'];
+		$change_category = $mysqli->query("UPDATE page SET prim_cat = '0', sec_cat = '0' WHERE page_id = '$article'");
+		if($change_category) {
+			header("Location: ./confirm.php?status=4");
+		}
+		else {
+			$error = "Uncatorgization Failed";
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +59,7 @@
     	<div class="container">
     		<h3>Categories</h3>
     		<!--Form for categorization of articles-->
-    		<form action="<?php echo $article_link; ?>submitcategory.php" method="GET" name="categorizeForm" id="categorizeForm">
+    		<form action="<?php echo $article_link; ?>recategorize.php" method="POST" name="categorizeForm" id="categorizeForm">
     			<input name="article" value="<?php echo $article; ?>" type="hidden"/>
 	    		<div id="primary_cat">
 	    			<?php echo $primary_cat;
@@ -58,7 +80,8 @@
 					</select>
 	    		</div>
 	    		<div id="secondary_cat"></div>
-	    		<input class="button-primary" type="submit" value="Submit">
+	    		<input class="button-primary" type="submit" value="Remove Category" name="uncategorizeSubmit" id="uncategorizeSubmit">
+	    		<input class="button-primary" type="submit" value="Change Category" name="recategorizeSubmit" id="recategorizeSubmit">
 	    	</form>
     	</div>
   	</div>
@@ -67,7 +90,7 @@
   	<script type="text/javascript">
 
   	/* Action at form submit */
-  	$('#categorizeForm').submit(function() {
+  	$('#recategorizeSubmit').click(function() {
 		var primCat = $('#primary_select').val();
 		var secCat = $('#secondary_select').val();
 		if(primCat == "0") {											//If primary category not selected

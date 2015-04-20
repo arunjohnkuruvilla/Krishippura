@@ -1,7 +1,7 @@
 <?php 
 	require_once('./config.php');
 	require_once("./initialize_database.php");
-	session_start();
+	require_once("./authenticate.php");
 	$edit_success = "";
 	if(isset($_GET['success']) && isset($_GET['article'])) {
 		$edit_success = "Article ".$_GET['article']." edited successfully";
@@ -124,6 +124,11 @@
 		    	</div>
 		    	<div class="five columns">
 		    		<a href="workspace/cat/deletesecondary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Delete Secondary category</a>
+		    	</div>
+		    	<br/>
+		    	<br/>
+		    	<div class="ten columns">
+		    		<a href="workspace/cat/uploadprimary.php" class="button" type="submit" onclick="openCategory(this); return false;" target="_blank">Upload Primary Display Image</a>
 		    	</div>
     		</div>
     		<!--Category Management ends here-->

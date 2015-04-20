@@ -14,7 +14,7 @@
 			if($default_pages) {
 				$delete_secondary_cat = $mysqli->query("DELETE FROM secondary_category WHERE primary_cat = '$primary_cat_id' AND sub_cat = '$secondary_cat_id'");
 				if($delete_secondary_cat) {
-					header("Location:confirmcatmod.php?status=5");
+					header("Location:confirmcatmod.php?status=6");
 				}
 				else {
 					$error = "Deletion of Secondary Category failed. Articles have been uncategorized. Please try again to delete the Crimary Category.";

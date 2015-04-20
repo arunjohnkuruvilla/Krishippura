@@ -32,10 +32,11 @@ function text_to_link($text) {
 }
 
 function text_to_external_link($text) {
-    preg_match_all("/--[a-zA-Z \/\+?&:.0-9]*--/", $text, $output_array);
+    preg_match_all("/--[a-zA-Z \/\+?&:\.\*0-9]*--/", $text, $output_array);
     foreach ($output_array[0] as &$value) {
         $len = strlen($value);
         $value_new = substr($value, 2, $len-4);
+        $value_new = str_replace("*", "", $value_new);
         $link_parts = explode("++", $value_new);
 
             $link = '<a target="_blank" href="'.$link_parts[0].'" class="external link">'.$link_parts[1].'</a>';
@@ -56,6 +57,30 @@ function link_to_text($text) {
     return $text;
 }
 
+function external_link_to_text($text) {
+
+    return $text;
+}
+
+function text_searchable($text) {
+    preg_match_all("/\[\[[a-zA-Z \*]*\]\]/", $text, $output_array);
+    foreach ($output_array[0] as &$value) {
+        $len = strlen($value);
+        $value_new = substr($value, 2, $len-4);
+        $value_new = str_replace("*", "", $value_new);
+        $value_new = "[[".$value_new."]]";
+        $text = str_replace($value, $value_new, $text);
+    }
+    preg_match_all("/--[a-zA-Z0-9&?\+\.:\/ \*]*--/", $text, $output_array_2);
+    foreach ($output_array_2[0] as $value) {
+        $len = strlen($value);
+        $value_new = substr($value, 2, $len-4);
+        $value_new = str_replace("*", "", $value_new);;
+        $value_new = "--".$value_new."--";
+        $text = str_replace($value, $value_new, $text);
+    }
+    return $text;
+}
 function text_unsearchable($text) {
     preg_match_all("/\[\[[a-zA-Z ]*\]\]/", $text, $output_array);
     foreach ($output_array[0] as &$value) {
@@ -63,6 +88,14 @@ function text_unsearchable($text) {
         $value_new = substr($value, 2, $len-4);
         $value_new = chunk_split($value_new, 1, "*");
         $value_new = "[[".$value_new."]]";
+        $text = str_replace($value, $value_new, $text);
+    }
+    preg_match_all("/--[a-zA-Z0-9&?\+\.:\/ ]*--/", $text, $output_array_2);
+    foreach ($output_array_2[0] as $value) {
+        $len = strlen($value);
+        $value_new = substr($value, 2, $len-4);
+        $value_new = chunk_split($value_new, 1, "*");
+        $value_new = "--".$value_new."--";
         $text = str_replace($value, $value_new, $text);
     }
     return $text;

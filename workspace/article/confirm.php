@@ -7,6 +7,12 @@
 	if($status == 2) {
 		$message = "File uploaded successfully";
 	}
+	if($status == 3) {
+		$message = "Recategorization successful";
+	}
+	if($status == 4) {
+		$message = "Uncategorization successful";
+	}
 ?>
 <!DOCTYPE html>
 <html>

@@ -19,6 +19,9 @@
 	if($status == 6) {
 		$message = "Secondary Category deleted successfully";
 	}
+	if($status == 7) {
+		$message = "Cover image uploaded successfully";
+	}
 ?>
 <!DOCTYPE html>
 <html>

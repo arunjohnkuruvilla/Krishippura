@@ -37,7 +37,7 @@
       <img src="images/kerala.png" width="768" height="1024" usemap="#kerala" alt="" style="width:30%;height:auto;padding-left:35%">
       <map name="kerala">
 
-        <area alt="KasarKode" title="Kasarkode" href="#kasarkode" shape="poly" coords="23,20,51,11,108,49,149,88,164,102,169,113,135,125,103,139,91,153,89,166,60,108" style="outline:5px solid #000;">
+        <area alt="Kasaragode" title="Kasaragode" href="#kasaragode" shape="poly" coords="23,20,51,11,108,49,149,88,164,102,169,113,135,125,103,139,91,153,89,166,60,108" style="outline:5px solid #000;">
 
         <area alt="Kannur" title="Kannur" href="#kannur" shape="poly" coords="95,165,104,175,130,194,151,221,174,245,188,248,205,234,227,223,248,210,269,199,292,192,293,171,261,157,226,142,202,126,189,118,175,107,148,122,120,129,101,137,94,148" style="outline:5px solid #000;">
 

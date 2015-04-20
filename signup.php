@@ -13,11 +13,11 @@
       AND $_POST['passwordLogin'] != ""
       AND $_POST['repasswordLogin'] != ""
       AND $_POST['emailLogin'] != "") {
-      $name = $_POST['nameLogin'];
-      $username = $_POST['usernameLogin'];
-      $password = $_POST['passwordLogin'];
-      $repassword = $_POST['repasswordLogin'];
-      $email = $_POST['emailLogin'];
+      $name = htmlspecialchars($_POST['nameLogin']);
+      $username = htmlspecialchars($_POST['usernameLogin']);
+      $password = htmlspecialchars($_POST['passwordLogin']);
+      $repassword = htmlspecialchars($_POST['repasswordLogin']);
+      $email = htmlspecialchars($_POST['emailLogin']);
       $user_check = $mysqli->query("INSERT INTO `user` (`user_id`, `user_name`, `user_real_name`, `user_password`, `user_creation_time`, `user_email`, `user_status`) VALUES (NULL, '$username', '$name', '$password', CURRENT_TIMESTAMP, '$email', '0');");
       if($user_check) {
         $error = "You have signed up successfully. Please wait while another editor approves you.";
