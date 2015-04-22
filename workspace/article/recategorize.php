@@ -1,6 +1,7 @@
 <?php 
 	require_once('../config.php');
 	require_once('../initialize_database.php');
+	require_once("../authenticate.php");
 	$primary_cat = "";
 	$secondary_cat = "";
 	if(isset($_GET['article'])) {

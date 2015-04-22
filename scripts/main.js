@@ -14,11 +14,19 @@ $.ajax({
     var selectionContent = '<select id="primary_select" name="primary_select">';
     selectionContent += '<option value="0">Select primary category</option>'
     for(i = 0; i < data.length; i++) {
-      menuContent += '<a href="' + data[i]['link'] + '">';
+      /*menuContent += '<a href="' + data[i]['link'] + '" style="display:block">';
       menuContent += '<div id="' + data[i]['name'] + '-section" class="row" style="height:20em;background:url(./images/primary/'+ data[i]['image'] +'.jpg)">';
       menuContent += '<h2 style="padding:1em;">' + data[i]['name'] + '</h2>';
       menuContent += '</div>';
-      menuContent += '</a>';
+      menuContent += '</a>';*/
+
+      menuContent += '<figure class="effect-honey">';
+      menuContent += '<img src="images/front-page-' + data[i]['image'] + '.jpg" alt="img04"/>';
+      menuContent += '<figcaption>';
+      menuContent += '<h2>'+ data[i]['name'] +'</h2>';
+      menuContent += '<a href="'+ data[i]['link'] +'">View more</a>';
+      menuContent += '</figcaption>';
+      menuContent += '</figure>';
 
       selectionContent += '<option value="'+ data[i]['id'] +'">'+ data[i]['name'] +'</option>';
     }
@@ -27,7 +35,7 @@ $.ajax({
     $('#primary').html(menuContent);
   },
   error: function(jqXHR, textStatus) {
-    alert(textStatus);
+    alert(textStatus + 'for Primary category');
   }
 });
 
@@ -59,18 +67,14 @@ $('#searchForm').submit(function() {
     dataType: 'json',
     success: function (data) {
       var i;
-      var content = "<ul>";
+      var content = "<div>";
       if(data[0]['title'] <= 0) {
-        content += "<li>";
-        content += "<h6>" + data[0].content + "</h6>";
-        content += "</li>";
+        content += "<p>" + data[0].content + "</p>";
       }
       else {
         for(i=0; i < data.length; i++) {
-          content += "<li>";
-          content += '<h6><a href="articles/'+ data[i].link + '">' + data[i].title + '</a></h6>';
+          content += '<p><a href="articles/'+ data[i].link + '">' + data[i].title + '</a></p>';
           content += "<p>" + data[i].content + "</p>";
-          content += "</li>";
         }
       }
        

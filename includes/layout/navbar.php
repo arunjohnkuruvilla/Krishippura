@@ -1,4 +1,4 @@
-  <nav class="navbar">
+  <nav class="navbar" style="position:absolute">
     <div class="container">
       <ul class="navbar-list">
         <li class="navbar-item"><a class="navbar-link" href="#">AgroDB</a></li>

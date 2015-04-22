@@ -1,4 +1,5 @@
 <?php 
+	require_once("../authenticate.php");
 	$message = "";
 	$status = $_GET['status'];
 	if($status == 1) {

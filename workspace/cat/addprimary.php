@@ -1,6 +1,7 @@
 <?php 
 	require_once('../config.php');
 	require_once('../initialize_database.php');
+  require_once("../authenticate.php");
 	$primary_cat = "";
 	$secondary_cat = "";
   $error = "";
@@ -8,7 +9,7 @@
     $new_category = $_POST['newPrimaryCat'];
     $category_query = $mysqli->query("SELECT cat_name FROM primary_category WHERE cat_name = '$new_category'");
     if($category_query->num_rows == 0) {
-      $category_insert = $mysqli->query("INSERT INTO `prototype`.`primary_category` (`cat_id`, `cat_name`) VALUES (NULL, '$new_category')");
+      $category_insert = $mysqli->query("INSERT INTO `primary_category` (`cat_id`, `cat_name`) VALUES (NULL, '$new_category')");
       header("Location:confirmcatmod.php?status=1");
     }
     else {

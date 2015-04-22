@@ -1,7 +1,6 @@
 <?php 
 	require_once('../workspace/config.php');
 	require_once('../workspace/initialize_database.php');
-	require_once('../workspace/article/functions.php');
 
 	$primary_query = $mysqli->query("SELECT * FROM primary_category");
 	$arr = array();

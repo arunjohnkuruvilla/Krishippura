@@ -2,6 +2,7 @@
   require_once('../config.php');
 	require_once("../initialize_database.php");
   require_once("./functions.php");
+  require_once("../authenticate.php");
 
 	if(isset($_POST['update_changes'])) {
 		$article_id = $_POST['article_id'];

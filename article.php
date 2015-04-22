@@ -15,7 +15,7 @@
     <!-- Navigation Bar -->
     <?php require("./includes/layout/navbar.php") ?>
 
-    <div id="main_content" class="container" style="padding-top:5rem;padding-bottom:4rem;height:95%"></div>
+    <div id="main_content" class="container" style="padding-top:10rem;padding-bottom:4rem;height:95%"></div>
 
 
     <script src="scripts/jquery.js"></script>
@@ -44,7 +44,7 @@
           dataType: 'json',
           success: function (data) {
             var container = $("#main_content");
-            container.append("<h2>"+data['title']+"</h2>");
+            container.append("<h1>"+data['title']+"</h1>");
 
             if(data['pdf']) {
               container.append('<a href="pdf/'+ first +'.pdf" target="_blank">Click here to read the article in Malayalam</a><br/>');

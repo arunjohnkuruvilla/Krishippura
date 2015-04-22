@@ -7,7 +7,7 @@
 			$response = "<span style='color:red'>The article already exists. Please enter another name.</span>";
 		}
 		else {
-			$name_query = $mysqli->query("INSERT INTO `prototype`.`page` (`page_id`, `prim_cat`, `sec_cat`, `page_title`, `page_creator`, `page_counter`, `page_content`) VALUES (NULL, '0', '0', '$new_article', '$_SESSION[user_id]', NULL, NULL)");
+			$name_query = $mysqli->query("INSERT INTO `page` (`page_id`, `prim_cat`, `sec_cat`, `page_title`, `page_creator`, `page_counter`, `page_content`) VALUES (NULL, '0', '0', '$new_article', '$_SESSION[user_id]', NULL, NULL)");
 			if($name_query) {
 				$response = "<span style='color:green'>New article created</span>";
 			}

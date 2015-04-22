@@ -1,6 +1,8 @@
 <?php 
 require("../config.php");
 require("../initialize_database.php");
+require_once("../authenticate.php");
+
 if(isset($_GET['execute'])) {
 	if($_GET['execute'] == 'delete') {
 		$id = $_GET['article'];

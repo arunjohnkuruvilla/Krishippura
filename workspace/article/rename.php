@@ -1,6 +1,7 @@
 <?php 
 	require_once('../config.php');
 	require_once('../initialize_database.php');
+  require_once("../authenticate.php");
   $error = "";
   if(isset($_POST['newArticleNameSubmit'])) {
     $article_id = $_POST['articleID'];

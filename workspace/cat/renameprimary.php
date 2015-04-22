@@ -1,6 +1,7 @@
 <?php 
 	require_once('../config.php');
 	require_once('../initialize_database.php');
+	require_once("../authenticate.php");
 	if(isset($_POST['renameCatSubmit'])) {
 		$primary_cat_id = $_POST['primary_select'];
 		$new_prim_cat_name = $_POST['renamePrimaryCat'];

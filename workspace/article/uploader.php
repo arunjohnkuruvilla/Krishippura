@@ -1,5 +1,6 @@
 <?php
 require_once("workspace/config.php");
+require_once("../authenticate.php");
 session_start();
 /**
  * PHP Real Ajax Uploader
