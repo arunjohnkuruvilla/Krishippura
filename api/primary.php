@@ -14,7 +14,7 @@
 				$entry['link'] = "landmarks.php";
 				break;
 			default:
-				$entry['link'] = "category.php?category=".$primary_result['cat_id'];
+				$entry['link'] = "category/".$primary_result['cat_id'].'/';
 				break;
 		}
 		array_push($arr, $entry);

@@ -1,5 +1,9 @@
-$('#advance_trigger').click(function() {
+$('#advanced_trigger').click(function() {
   $('#advanced').slideToggle("slow");
+});
+
+$('.morphsearch-close').click(function() {
+  $('#advanced').slideUp("fast");
 });
 //to populate the primary categories
 $.ajax({
@@ -21,7 +25,7 @@ $.ajax({
       menuContent += '</a>';*/
 
       menuContent += '<figure class="effect-honey">';
-      menuContent += '<img src="images/front-page-' + data[i]['image'] + '.jpg" alt="img04"/>';
+      menuContent += '<img src="images/primary/' + data[i]['image'] + '.jpg" alt="img04"/>';
       menuContent += '<figcaption>';
       menuContent += '<h2>'+ data[i]['name'] +'</h2>';
       menuContent += '<a href="'+ data[i]['link'] +'">View more</a>';
@@ -40,7 +44,9 @@ $.ajax({
 });
 
 $('#searchForm').submit(function() {
+  alert("hi");
   var searchQuery = $('#searchInput').val();
+  alert(searchQuery);
   var primCat = $('#primary_select').val();
 
   if(searchQuery == "") {
@@ -73,13 +79,13 @@ $('#searchForm').submit(function() {
       }
       else {
         for(i=0; i < data.length; i++) {
-          content += '<p><a href="articles/'+ data[i].link + '">' + data[i].title + '</a></p>';
-          content += "<p>" + data[i].content + "</p>";
+          content += '<div style="height:100%;width:50%;background-color:rgba(0,0,0,0.3);float:left"><h3><a href="articles/'+ data[i].link + '">' + data[i].title + '</a></h3>';
+          content += "<p>" + data[i].content + "</p></div>";
         }
       }
        
       $('#search_results').html(content);
-      $('#search_results').slideToggle("slow");
+      $('#search_results').slideDown("slow");
     },
     error: function (jqXHR, textStatus) {
       alert(textStatus);

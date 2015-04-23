@@ -48,10 +48,10 @@
 
 		  		$content = $search_results['page_content'];
 		  		$word = preg_quote($query);
-		  		$text = preg_match_all("/[a-zA-Z ]{0,10}($word)[a-zA-Z ]{0,10}/i", $content, $matches);
+		  		$text = preg_match("/[a-zA-Z \.\'\"]{0,40}/m", $content, $matches);
 
 		  		if($text == 0) continue;
-		  		$entry['content'] = '...'.$matches[0][0].'...';
+		  		$entry['content'] = $matches[0].'...';
 		  		array_push($arr, $entry);
 		  	}
         if(count($arr) == 0) {

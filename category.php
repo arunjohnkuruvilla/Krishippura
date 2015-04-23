@@ -59,7 +59,7 @@
               <div>
                 <h2>'.$pages_entry['page_title'].'</h2>
               </div>
-              <a href="#">View more</a>
+              <a href="articles/'.str_replace(" ", "_", $pages_entry['page_title']).'">View more</a>
             </figcaption>     
           </figure>
         ';

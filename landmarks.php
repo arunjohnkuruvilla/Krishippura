@@ -34,7 +34,7 @@
 
   <div style="padding-top:5rem">
     <div class="container">
-      <img src="images/kerala.png" width="768" height="1024" usemap="#kerala" alt="" style="width:30%;height:auto;padding-left:35%">
+      <img src="images/kerala.png" width="768" height="1024" usemap="#kerala" alt="" style="width:65%;height:auto;padding-left:35%">
       <map name="kerala">
 
         <area alt="Kasaragode" title="Kasaragode" href="#kasaragode" shape="poly" coords="23,20,51,11,108,49,149,88,164,102,169,113,135,125,103,139,91,153,89,166,60,108" style="outline:5px solid #000;">
