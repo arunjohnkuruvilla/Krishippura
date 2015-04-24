@@ -48,32 +48,37 @@
           dataType: 'json',
           success: function (data) {
             var container = $("#main_content");
-            container.append("<h2>"+data['title']+"</h2>");
-
+            contents = "";
+            contents += '<div class="article-head"><h2>'+data['title']+'</h2>';
+            if(data['name_thumb']) {
+              contents += '<img src="images/malayalam-names/' + first + '.png" class="name_thumb"/>';
+            }
+            contents += '</div><br/><br/>';
             if(data['pdf']) {
-              container.append('<a href="pdf/'+ first +'.pdf" target="_blank">Click here to read the article in Malayalam</a><br/>');
+              contents += '<a href="pdf/'+ first +'.pdf" target="_blank">Click here to read the article in Malayalam</a><br/>';
             }
             for ( i = 1; i < data['sections_count']; i++) {
               tabindex = "tab"+(i+1);
-              navbuttons += '<a class="button article_nav" style="width:auto" href="articles/'+first+'#'+tabindex+'">' + data['section_head'][i] + '</a>';
+              contents += '<a class="button article_nav" style="width:auto" href="articles/'+first+'#'+tabindex+'">' + data['section_head'][i] + '</a>';
             };
-            navbuttons += '<br/><br/><br/><br/>';
-            container.append(navbuttons);
+            contents += '<br/><br/><br/><br/>';
+            //container.append(navbuttons);
             i=1;
             tabindex = "tab"+i;
-            contents = '<div class="tab_section_intro">';
+            contents += '<div class="tab_section_intro">';
             contents += '<div class="tab_section_intro_content"><p>' + data[tabindex][1] + '</p></div>';
             contents += '</div>';
-            container.append(contents);
+            //container.append(contents);
 
             for (i = 2; i <= data['sections_count']; i++) {
               tabindex = "tab"+i;
-              contents = '<div id="'+tabindex+'" class="tab_section">';
+              contents += '<div id="'+tabindex+'" class="tab_section">';
               contents += '<div class="tab_section_head"><p>' + data[tabindex][0] + '</p></div>';
               contents += '<div class="tab_section_content"><p>' + data[tabindex][1] + '</p></div>';
               contents += '</div>';
-              container.append(contents);
+              
             }
+            container.append(contents);
           },
           error: function (jqXHR, textStatus) {
             alert(textStatus);

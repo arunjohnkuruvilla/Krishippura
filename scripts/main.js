@@ -1,5 +1,18 @@
+var advancedStatus = false;
 $('#advanced_trigger').click(function() {
-  $('#advanced').slideToggle("slow");
+  if(advancedStatus) {
+    $('#primary_select').val('0');
+    if ($('#secondary_select').length > 0) {
+      $('#secondary_select').val('0');
+    }
+    $('#advanced').slideUp("slow");
+    advancedStatus = false;
+  }
+  else {
+    $('#advanced').slideDown("slow");
+    advancedStatus = true;
+  }
+  
 });
 
 $('.morphsearch-close').click(function() {
@@ -44,13 +57,16 @@ $.ajax({
 });
 
 $('#searchForm').submit(function() {
-  alert("hi");
   var searchQuery = $('#searchInput').val();
-  alert(searchQuery);
   var primCat = $('#primary_select').val();
 
   if(searchQuery == "") {
     alert("Please enter search query.");
+    return false;
+  }
+  var regx = /^[A-Za-z0-9 ]+$/;
+  if (!regx.test(searchQuery)) {
+    alert("Only alphabets and numbers allowed");
     return false;
   }
   if(primCat == 0) {
@@ -75,7 +91,8 @@ $('#searchForm').submit(function() {
       var i;
       var content = "<div>";
       if(data[0]['title'] <= 0) {
-        content += "<p>" + data[0].content + "</p>";
+        content += '<div style="height:100%;width:50%;background-color:rgba(0,0,0,0.3);float:left">';
+        content += "<h3>" + data[0].content + "</h3></div>";
       }
       else {
         for(i=0; i < data.length; i++) {
@@ -132,3 +149,53 @@ $("#primary_select").change(function() {
   });
 }).trigger( "change" );
 
+(function() {
+        var morphSearch = document.getElementById( 'morphsearch' ),
+          input = morphSearch.querySelector( 'input.morphsearch-input' ),
+          ctrlClose = morphSearch.querySelector( 'span.morphsearch-close' ),
+          isOpen = isAnimating = false,
+          // show/hide search area
+          toggleSearch = function(evt) {
+            // return if open and the input gets focused
+            if( evt.type.toLowerCase() === 'focus' && isOpen ) return false;
+
+            var offsets = morphsearch.getBoundingClientRect();
+            if( isOpen ) {
+              classie.remove( morphSearch, 'open' );
+
+              // trick to hide input text once the search overlay closes 
+              // todo: hardcoded times, should be done after transition ends
+              if( input.value !== '' ) {
+                setTimeout(function() {
+                  classie.add( morphSearch, 'hideInput' );
+                  setTimeout(function() {
+                    classie.remove( morphSearch, 'hideInput' );
+                    input.value = '';
+                  }, 300 );
+                }, 500);
+              }
+              
+              input.blur();
+            }
+            else {
+              classie.add( morphSearch, 'open' );
+            }
+            isOpen = !isOpen;
+          };
+
+        // events
+        input.addEventListener( 'focus', toggleSearch );
+        ctrlClose.addEventListener( 'click', toggleSearch );
+        // esc key closes search overlay
+        // keyboard navigation events
+        document.addEventListener( 'keydown', function( ev ) {
+          var keyCode = ev.keyCode || ev.which;
+          if( keyCode === 27 && isOpen ) {
+            toggleSearch(ev);
+          }
+        } );
+
+
+        /***** for demo purposes only: don't allow to submit the form *****/
+        morphSearch.querySelector( 'button[type="submit"]' ).addEventListener( 'click', function(ev) { ev.preventDefault(); } );
+      })();

@@ -30,6 +30,7 @@
 		$i = $i + 1;
 	}
 	$arr['pdf'] = $row['pdf_status'];
+	$arr['name_thumb'] = $row['name_png_status'];
 	$json=json_encode($arr);
 	print_r($json);
 ?>

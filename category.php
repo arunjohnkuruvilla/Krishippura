@@ -53,8 +53,12 @@
       $pages_list_query = $mysqli->query("SELECT * FROM page INNER JOIN user ON (page_creator=user_id) WHERE prim_cat = '$primary_id' AND sec_cat = '$secondary_id'");
       while($pages_entry = $pages_list_query->fetch_assoc()) {
           echo '
-          <figure class="effect-lily">
-            <img src="images/12.jpg" alt="img12"/>
+          <figure class="effect-lily">';
+          if($pages_entry['thumbnail_status']) {
+            echo '<img src="images/thumbs/'.str_replace(" ", "_", $pages_entry['page_title']).'.jpg" alt="img12"/>';
+          }
+          echo '
+            
             <figcaption>
               <div>
                 <h2>'.$pages_entry['page_title'].'</h2>

@@ -5,9 +5,16 @@ html, body {
   height: 100%;
 }
 body {
-  background-color: #fff;
+  background-color: #7f8c8d;
   color: #000;
 }
+
+* { background-color: rgba(255,0,0,.2); }
+* * { background-color: rgba(0,255,0,.2); }
+* * * { background-color: rgba(0,0,255,.2); }
+* * * * { background-color: rgba(255,0,255,.2); }
+* * * * * { background-color: rgba(0,255,255,.2); }
+* * * * * * { background-color: rgba(255,255,0,.2); }
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -140,7 +147,7 @@ table {
     display: block;
     width: 100%;
     height: 5rem;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.5);
     z-index: 99; }
   .navbar-spacer {
     display: none; }
@@ -154,7 +161,6 @@ table {
   .navbar-link {
     text-transform: uppercase;
     font-size: 1.2em;
-    font-weight: 600;
     letter-spacing: .2rem;
     margin-right: 35px;
     text-decoration: none;
@@ -773,9 +779,9 @@ figure.effect-lily:hover p {
 }
 
 .morphsearch {
-  width: 300px;
+  width: 400px;
   height: 60px;
-  background: #f1f1f1;
+
   z-index: 10000;
   -webkit-transform-origin: 100% 0;
   transform-origin: 100% 0;
@@ -788,6 +794,7 @@ figure.effect-lily:hover p {
 }
 
 .morphsearch.open {
+    background: #f1f1f1;
   width: 100%;
   min-height: 100%;
   top: 0px;
@@ -829,15 +836,15 @@ figure.effect-lily:hover p {
   margin-left: 10%;
 }
 .morphsearch-input {
-  width: 100% !important;
+  width: 80% !important;
   height: 40px !important;
-  padding: 10% 10% 7% 10% !important;
-  font-weight: 700 !important;
+  padding: 7% 10% 7% 10% !important;
   border: none !important;
   background: transparent !important;
   font-size: 2em;
   color: #ec5a62 !important;
   text-align:center;
+  float:left;
   border-radius: 4px !important;
   -webkit-transition: font-size 0.5s cubic-bezier(0.7,0,0.3,1) !important;
   transition: font-size 0.5s cubic-bezier(0.7,0,0.3,1) !important;
@@ -892,32 +899,30 @@ input[type="search"] { /* reset normalize */
 }
 
 .morphsearch-submit {
-  position: absolute;
-  width: 100px;
-  height: 100px !important;
+  width: 2px;
+  height: 40px !important;
   text-indent: 100px;
   overflow: hidden;
   right: 10%;
+  margin:0.8em;
+  float: left;
   top: 30%;
   background: transparent url(../images/magnifier.svg) no-repeat center center !important;
   background-size: 100%;
   border: none !important;
   pointer-events: none;
-  transform-origin: 50% 50%;
+  /*transform-origin: 50% 50%;
   opacity: 0;
   -webkit-transform: translate3d(-30px,-50%,0) scale3d(0,0,1);
-  transform: translate3d(-30px,-50%,0) scale3d(0,0,1);
+  transform: translate3d(-30px,-50%,0) scale3d(0,0,1);*/
 }
 
 .morphsearch.open .morphsearch-submit {
   pointer-events: auto;
+  width: 100px;
+  height: 100px !important;
   opacity: 1;
-  -webkit-transform: translate3d(-30px,-50%,0) scale3d(1,1,1);
-  transform: translate3d(-30px,-50%,0) scale3d(1,1,1);
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s;
-  -webkit-transition-delay: 0.5s;
-  transition-delay: 0.5s;
+ 
 }
 
 .morphsearch-close {
@@ -1030,7 +1035,7 @@ input[type="search"] { /* reset normalize */
   }
 }
 a { 
-  color: #000 !important;
+  color: #fff !important;
 }
 
 @media screen and (max-width: 60.625em) {

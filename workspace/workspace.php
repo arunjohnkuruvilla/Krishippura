@@ -143,8 +143,8 @@
 					<colgroup>
 						<col style="width: 3%">
 						<col style="width: 40%">
-						<col style="width: 25%">
-						<col style="width: 3%">
+						<col style="width: 22%">
+						<col style="width: 6%">
 						<col style="width: 4%">
 						<col style="width: 4%">
 						<col style="width: 6%">
@@ -156,7 +156,7 @@
 					    <td class="tg-s6z2">'.$pages_entry['page_id'].'</td>
 					    <td class="tg-s6z2">'.$pages_entry['page_title'].'</td>
 					    <td class="tg-s6z2">'.$pages_entry['user_real_name'].'</td>
-					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'uploadpdf.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:100%;padding:0">PDF</a></td>
+					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'uploadcontents.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:100%;padding:0">UPLOAD</a></td>
 					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'article.php?page='.str_replace(" ", "_", $pages_entry['page_title']).'" style="width:100%;padding:0">VIEW</a></td>
 					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'editor.php?article='.$pages_entry['page_id'].'" style="width:100%;padding:0">EDIT</a></td>
 					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'rename.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:100%;padding:0">RENAME</a></td>
@@ -183,8 +183,8 @@
 								<colgroup>
 									<col style="width: 3%">
 									<col style="width: 40%">
-									<col style="width: 25%">
-									<col style="width: 3%">
+									<col style="width: 22%">
+									<col style="width: 6%">
 									<col style="width: 4%">
 									<col style="width: 4%">
 									<col style="width: 6%">
@@ -195,8 +195,8 @@
 							    <td class="tg-s6z2">'.$pages_entry['page_id'].'</td>
 							    <td class="tg-s6z2">'.$pages_entry['page_title'].'</td>
 							    <td class="tg-s6z2">'.$pages_entry['user_real_name'].'</td>
-							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'uploadpdf.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:100%;padding:0">PDF</a></td>
-							    <td class="tg-s6z2"><a class="button" href="articles/'.str_replace(" ", "_", $pages_entry['page_title']).'" style="width:100%;padding:0">VIEW</a></td>
+							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'uploadcontents.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:100%;padding:0">UPLOAD</a></td>
+							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'article.php?page='.str_replace(" ", "_", $pages_entry['page_title']).'" style="width:100%;padding:0">VIEW</a></td>
 							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'editor.php?article='.$pages_entry['page_id'].'" style="width:100%;padding:0">EDIT</a></td>
 							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'rename.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:100%;padding:0">RENAME</a></td>
 							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'recategorize.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" target="_blank" style="width:100%;padding:0">CATEGORIZE</a></td>

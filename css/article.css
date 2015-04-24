@@ -48,3 +48,18 @@ border-top: 1px solid #eee;
 body {
 	color: #000;
 }
+
+.article-head {
+	width:100%;
+	margin-bottom:2rem;
+	height:5rem;
+}
+.article-head h2 {
+	float:left;
+	margin-right: 1rem;
+}
+.article-head .name_thumb {
+	float:left;
+	height: 4.2rem;
+	margin-bottom: 2rem;
+}

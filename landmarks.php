@@ -55,7 +55,7 @@
     while($secondary_query_list = $secondary_query->fetch_assoc()) {
       $secondary_id = $secondary_query_list['sub_cat'];
       echo '<a name="'.strtolower($secondary_query_list['cat_name']).'"></a> ';
-      echo '<h4>'.$secondary_query_list['cat_name'].'</h4>';
+      //echo '<h4>'.$secondary_query_list['cat_name'].'</h4>';
       echo '<table class="" style="undefined;table-layout: fixed; width: 100%">
         <colgroup>
         <col style="width: 100%">
