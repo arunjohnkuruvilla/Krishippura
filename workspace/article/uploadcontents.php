@@ -168,8 +168,8 @@
     		<h4>Upload Malayalam PDF</h4>
     		<!--Form for adding a new category of articles-->
     		<form action="workspace/article/uploadcontents.php?article=<?php echo $_GET['article']; ?>" method="POST" name="uploadPDFForm" id="uploadPDFForm" enctype="multipart/form-data">
-          <input type="file" name="malayalam_pdf"/> 
-          <span class="filename">No PDF selected</span> 
+          <input type="file" name="malayalam_pdf" id="malayalam_pdf"/> 
+          <span class="malayalam-pdf-filename">No PDF selected</span> 
           <br/>
           <input type="submit" value="Upload" name="pdfSubmit">
           <p><?php echo $error; ?></p>
@@ -177,16 +177,16 @@
 
         <h4>Upload Malayalam Name png</h4>
         <form action="workspace/article/uploadcontents.php?article=<?php echo $_GET['article']; ?>" method="POST" name="uploadPNGForm" id="uploadPNGForm" enctype="multipart/form-data">
-          <input type="file" name="malayalam_name"/> 
-          <span class="filename">No PNG selected</span> 
+          <input type="file" name="malayalam_name" id="malayalam_name"/> 
+          <span class="malayalam-name-filename">No PNG selected</span> 
           <br/>
           <input type="submit" value="Upload" name="pngSubmit">
           <p><?php echo $error2; ?></p>
         </form>
         <h4>Upload Thumbnail</h4>
         <form action="workspace/article/uploadcontents.php?article=<?php echo $_GET['article']; ?>" method="POST" name="uploadJPGForm" id="uploadJPGForm" enctype="multipart/form-data">
-          <input type="file" name="thumbnail"/> 
-          <span class="filename">No JPG selected</span> 
+          <input type="file" name="thumbnail" id="thumbnail"/> 
+          <span class="thumbnail-filename">No JPG selected</span> 
           <br/>
           <input type="submit" value="Upload" name="jpgSubmit">
           <p><?php echo $error3; ?></p>
@@ -197,10 +197,18 @@
     <script src="scripts/jquery.js"></script>
     <script type="text/javascript">
       $(function() {
-         $("input:file").change(function (){
-           var fileName = $(this).val();
-           $(".filename").html(fileName);
-         });
+        $("#thumbnail").change(function (){
+          var fileName = $(this).val();
+          $(".thumbnail-filename").html(fileName);
+        });
+        $("#malayalam_name").change(function (){
+          var fileName = $(this).val();
+          $(".malayalam-name-filename").html(fileName);
+        });
+        $("#malayalam_pdf").change(function (){
+          var fileName = $(this).val();
+          $(".malayalam-pdf-filename").html(fileName);
+        });
       });
     </script>
 

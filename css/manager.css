@@ -29,11 +29,12 @@ input[type=text] {
 	border: 1px solid #777;
 	border-radius: 3px;
 	background-color:#fff;
-	height: 25px;
+	height: 40px;
 	text-align: center;
-	padding: 5px;
+	padding: 10px;
 	float: left;
 	margin: 2px 2px 8px;
+	color: #000 !important;
 }
 .kaja-input .ki-but:hover {
 	border: 1px solid #444444;
@@ -72,6 +73,7 @@ input[type=text] {
 .kaja-input .help-view {
 	font-size: 12px;
 }
+
 .left {
 	position: fixed;
 	left: 0;
@@ -127,10 +129,7 @@ h4,h5 {
 	border: 1px solid #000;
 	background-color: #eee;
 }
-a
-{
-	color:#fff;
-}
+
 
 /*===========================Uploader==========================*/
 

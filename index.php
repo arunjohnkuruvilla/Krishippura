@@ -26,54 +26,27 @@
   <?php require("./includes/layout/navbar.php") ?>
 
   <div style="height:100%;width:100%;background-image:url('images/background.jpg');background-size:100%;background-repeat:no-repeat"></div>
-  <!--<div style="height:50%;width:100%;background-color:rgba(0,0,0,0.2)">
-    <div class="container" style="padding-top:5rem">
-      <!--Search Function
-      <div id="query-section" class="row" style="height:20em;padding:2em">
+  <div class="" style="width:100%;height:30%;background-color:rgba(0,0,0,0.2);padding:5%">
+    <div id="morphsearch" class="morphsearch" style="margin-left: auto;margin-right: auto">
+      <form class="morphsearch-form" id="searchForm">
+        <input class="morphsearch-input" type="search" placeholder="Search..." id="searchInput"/>
+        <input class="morphsearch-submit" type="submit" id="searchSubmit" value="Search"/>
         <div class="twelve columns">
-          <form name="searchForm" id="searchForm">
-            <div class="six columns">
-              <input type="text" placeholder="Start searching..." id="searchInput" class="nine columns"  style="margin-right:1%">
-              <input name="searchSubmit" class="button-primary" type="submit" value="Submit">
-            </div>
-            <div class="button three columns" id="advance_trigger">Advanced Options</div>
-
-            <br/>
-            <div id="advanced" style="display:none" class="twelve columns">
-              <div id="primary_cat" class="three columns" style="margin-left:0"></div>
-              <div id="secondary_cat" class="three columns" style="margin-left:0"></div>
-            </div>
-            
-          </form>
+          <div class="button three columns advanced_trig" id="advanced_trigger">Advanced Options</div>
         </div>
-        <!--Search results
-          <div id="search_results" class="twelve columns" style="display:none;z-index:999"></div>
+        <div id="advanced" class="advanced">
+          <div id="primary_cat" class="three columns" style="margin-left:0;margin-top:10px"></div>
+          <div id="secondary_cat" class="three columns" style="margin-left:10px;margin-top:10px"></div>
+        </div>
+      </form>
+      <div class="morphsearch-content">
+        <div id="search_results" class="twelve columns" style="z-index:999;height:50%"></div>
       </div>
+      <span class="morphsearch-close"></span>
     </div>
-  </div>-->
-  <div class="" style="width:100%;height:50%;background-color:rgba(0,0,0,0.2);padding:10%">
-      <div id="morphsearch" class="morphsearch" style="margin-left: auto;margin-right: auto">
-        <form class="morphsearch-form" id="searchForm">
-          <input class="morphsearch-input" type="search" placeholder="Search..." id="searchInput"/>
-          <input class="morphsearch-submit" type="submit" id="searchSubmit"/>
-          <div class="twelve columns">
-            <div class="button three columns advanced_trig" id="advanced_trigger">Advanced Options</div>
-          </div>
+    <div class="overlay"></div>
+  </div>
 
-          <div id="advanced" class="advanced">
-            <div id="primary_cat" class="three columns" style="margin-left:0;margin-top:10px"></div>
-            <div id="secondary_cat" class="three columns" style="margin-left:10px;margin-top:10px"></div>
-          </div>
-        </form>
-        <div class="morphsearch-content">
-          <div id="search_results" class="twelve columns" style="z-index:999;height:50%">
-            
-          </div>
-        </div><!-- /morphsearch-content -->
-        <span class="morphsearch-close"></span>
-      </div><!-- /morphsearch -->
-      <div class="overlay"></div>
-    </div><!-- /container -->
   <div style="width:100%;padding:5%">
     <div class="container" style="overflow:auto">
       <div class="grid">
@@ -81,7 +54,11 @@
         </div>
     </div>
   </div>
-  <div style="height:10%;width:100%;background-color:rgba(0,0,0,0.2)"></div>
+
+  <div class="" style="width:100%;height:50%;background-color:rgba(0,0,0,0.2);padding:10%">
+  </div>
+
+  <div style="height:10%;width:100%;"></div>
   
 
   <script type="text/javascript" src="scripts/jquery.js"></script>

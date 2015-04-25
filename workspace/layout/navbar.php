@@ -4,6 +4,7 @@
         
       </ul>
       <ul class="navbar-list" style="float:right">
+      	<li class="navbar-item"><a class="navbar-link" href="/workspace/workspace.php">Workspace</a></li>
         <li class="navbar-item"><a class="navbar-link" href="/workspace/logout.php">Logout</a></li>
       </ul>
     </div>

@@ -33,7 +33,6 @@
       $(document).ready(function() {
         var pathArray = window.location.pathname.split( '/' );
         var first = "<?php echo $_GET['page']; ?>";
-        alert(first);
         var source = "/api/content.php?page=" + first;
         var tabindex;
         var contents;

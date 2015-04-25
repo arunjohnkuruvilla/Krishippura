@@ -9,9 +9,14 @@
 		$article_content = text_unsearchable($_POST['content']);
 		$update_query = $mysqli->query("UPDATE `page` SET `page_content` = '$article_content' WHERE `page_id` = '$article_id'");
     if($update_query) {
-			header("Location:../workspace.php?success=1&article=".$article_id);
+      $get_name = $mysqli->query("SELECT page_title FROM page WHERE page_id = '$article_id'");
+      $get_name_text = $get_name->fetch_assoc();
+			header("Location:./article.php?success=1&page=".$get_name_text['page_title']);
 		}
 	}
+  if(isset($_POST['cancel_changes'])) {
+    header("Location:../worskpace.php");
+  }
   if(isset($_POST['back_to_edit'])) {
     $article_id = $_POST['article_id'];
     header("Location: editor.php?article=".$article_id);
@@ -51,7 +56,7 @@
     <!-- Navigation Bar -->
     <?php include("../../includes/layout/navbar.php") ?>
 
-    <div class="container" style="padding-top:5rem;padding-bottom:4rem;height:95%">
+    <div class="container" style="padding-top:10em;padding-bottom:4rem;height:95%">
     	   
         <form method="post" action="<?php echo $article_link?>preview.php" id="article_preview_form" name="article_preview_form">
 

@@ -46,13 +46,13 @@ $mysqli->close();
   <!-- Navigation Bar -->
   <?php include("../../includes/layout/navbar.php") ?>
 
-  <div class="container" style="padding-top:5rem;padding-bottom:4rem;height:95%"> 
+  <div class="container" style="padding-top:10em;padding-bottom:4rem;height:95%"> 
     Article ID: <b><?php echo $eventcode; ?></b>
     <br/>
     Article Title: <b><?php echo $page_name; ?></b>
     <br/>
     
-    <form method="post" action="<?php echo $article_link; ?>preview.php?article=<?php echo $eventcode;?>" id="event_form" name="event_form">
+    <form method="post" style="padding-top:1em;" action="<?php echo $article_link; ?>preview.php?article=<?php echo $eventcode;?>" id="event_form" name="event_form">
       <input type="hidden" id="preserve" name="preserve" value="<?php echo str_replace('"', '&quot;', $content_to_preserve);?>" />
       <input type="hidden" id="desc" name="content" value="<?php echo str_replace('"', '&quot;', $content);?>" />
           

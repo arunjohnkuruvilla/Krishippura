@@ -30,7 +30,7 @@
   <link rel="icon" type="image/png" href="">
 
 </head>
-<body>
+<body style="background-color:#fff">
 
   <!-- Navigation Bar -->
   <?php require("./includes/layout/navbar.php") ?>
