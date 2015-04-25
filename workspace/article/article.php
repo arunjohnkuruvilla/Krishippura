@@ -54,13 +54,13 @@
             }
             contents += '</div><br/><br/>';
             if(data['pdf']) {
-              contents += '<a href="pdf/'+ first +'.pdf" target="_blank">Click here to read the article in Malayalam</a><br/>';
+              contents += '<a href="pdf/'+ first +'.pdf" target="_blank">Click here to read the article in Malayalam</a><br/><br/><br/>';
             }
             for ( i = 1; i < data['sections_count']; i++) {
               tabindex = "tab"+(i+1);
               contents += '<a class="button article_nav" style="width:auto" href="articles/'+first+'#'+tabindex+'">' + data['section_head'][i] + '</a>';
             };
-            contents += '<br/><br/><br/><br/>';
+            contents += '<br/><br/>';
             //container.append(navbuttons);
             i=1;
             tabindex = "tab"+i;

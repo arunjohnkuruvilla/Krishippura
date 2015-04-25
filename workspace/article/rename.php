@@ -10,7 +10,7 @@
     if($name_check->num_rows == 0) {
       $update_name = $mysqli->query("UPDATE page SET page_title = '$new_name' WHERE page_id = '$article_id'");
       if($update_name) {
-        header("Location: confirmr.php?status=1");
+        header("Location: confirm.php?status=1");
       }
       else {
         $error = "Updating Article Name failed. Please try again.";

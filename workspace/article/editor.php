@@ -10,15 +10,16 @@ $eventcode = "";
 $eventcode = $_GET['article'];
 
 // get the content from the database
-$query="SELECT page_id,page_title,page_creator,page_content FROM page WHERE page_id='$eventcode'";
+$query="SELECT * FROM page WHERE page_id='$eventcode'";
+
 $result=$mysqli->query($query);
 $row=$result->fetch_assoc();
-if($row)
-{
-    $page_name=$row['page_title'];
-    $content_to_preserve = $row['page_content'];
-    $content=text_searchable($row['page_content']);
-    $result->free();
+if($row) {
+  $creator = $row['page_creator'];
+  $page_name=$row['page_title'];
+  $content_to_preserve = $row['page_content'];
+  $content=text_searchable($row['page_content']);
+  $result->free();
 }
 $mysqli->close();
 ?>
@@ -45,11 +46,13 @@ $mysqli->close();
 <body>
   <!-- Navigation Bar -->
   <?php include("../../includes/layout/navbar.php") ?>
-
+  <a name="#" ></a>
   <div class="container" style="padding-top:10em;padding-bottom:4rem;height:95%"> 
     Article ID: <b><?php echo $eventcode; ?></b>
     <br/>
     Article Title: <b><?php echo $page_name; ?></b>
+    <br/>
+    Article Creator: <b><?php echo $creator; ?></b>
     <br/>
     
     <form method="post" style="padding-top:1em;" action="<?php echo $article_link; ?>preview.php?article=<?php echo $eventcode;?>" id="event_form" name="event_form">
@@ -61,13 +64,12 @@ $mysqli->close();
       <input name="cancel_changes" type="submit" value="Discard Changes" />
     </form>
 
-    <div class="row">
+    <div class="row" style="padding-bottom:10em">
       <div class="main">
         <h5>Introduction</h5>
         <textarea id="intro" name="intro"></textarea>
         <!-- button for adding new sections -->  
         <a href="javascript:void(0)" id="new_sec" class="button">Add a Section</a>
-        <a href="#" class="button">Go to Top</a>
       </div>
     </div>
    </div>

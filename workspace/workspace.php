@@ -164,7 +164,7 @@
 					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'execute.php?execute=delete&article='.$pages_entry['page_id'].'" style="width:100%;padding:0">DELETE</a></td>
 				  	</tr>';
 	}
-	echo "</table>";
+	echo "</table><hr/>";
 
 	//Displaying Articles according to category
 	$primary_query = $mysqli->query("SELECT * FROM primary_category");
@@ -176,21 +176,21 @@
 		while($secondary_query_list = $secondary_query->fetch_assoc()) {
 			$secondary_id = $secondary_query_list['sub_cat'];
 			echo '<h5>'.$secondary_query_list['cat_name'].'</h5>';
+			echo '<table class="tg" style="undefined;table-layout: fixed; width: 100%">
+							<colgroup>
+								<col style="width: 3%">
+								<col style="width: 40%">
+								<col style="width: 22%">
+								<col style="width: 6%">
+								<col style="width: 4%">
+								<col style="width: 4%">
+								<col style="width: 6%">
+								<col style="width: 9%">
+								<col style="width: 6%">
+							</colgroup>';
 			$pages_list_query = $mysqli->query("SELECT * FROM page INNER JOIN user ON (page_creator=user_id) WHERE prim_cat = '$primary_id' AND sec_cat = '$secondary_id'");
 			while($pages_entry = $pages_list_query->fetch_assoc()) {
 		    	echo 		'
-		    				<table class="tg" style="undefined;table-layout: fixed; width: 100%">
-								<colgroup>
-									<col style="width: 3%">
-									<col style="width: 40%">
-									<col style="width: 22%">
-									<col style="width: 6%">
-									<col style="width: 4%">
-									<col style="width: 4%">
-									<col style="width: 6%">
-									<col style="width: 9%">
-									<col style="width: 6%">
-								</colgroup>
 		    				<tr>
 							    <td class="tg-s6z2">'.$pages_entry['page_id'].'</td>
 							    <td class="tg-s6z2">'.$pages_entry['page_title'].'</td>
@@ -201,10 +201,9 @@
 							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'rename.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:100%;padding:0">RENAME</a></td>
 							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'recategorize.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" target="_blank" style="width:100%;padding:0">CATEGORIZE</a></td>
 							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'execute.php?execute=delete&article='.$pages_entry['page_id'].'" style="width:100%;padding:0">DELETE</a></td>
-						  	</tr>
-						 	</table>
-						  	';
+						  	</tr>';
 			}
+			echo '</table><hr/>';
 		}
 	}
 ?>    

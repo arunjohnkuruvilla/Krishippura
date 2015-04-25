@@ -2,8 +2,6 @@
 	require_once('../config.php');
 	require_once('../initialize_database.php');
 	require_once("../authenticate.php");
-	$primary_cat = "";
-	$secondary_cat = "";
 	if(isset($_GET['article'])) {
 		$article = $_GET['article'];
 	}
@@ -62,16 +60,16 @@
     		<!--Form for categorization of articles-->
     		<form action="<?php echo $article_link; ?>recategorize.php" method="POST" name="categorizeForm" id="categorizeForm">
     			<input name="article" value="<?php echo $article; ?>" type="hidden"/>
+    			<input class="button-primary" type="submit" value="Remove Current Category" name="uncategorizeSubmit" id="uncategorizeSubmit">
+    			<br/>
+    			<br/>
 	    		<div id="primary_cat">
-	    			<?php echo $primary_cat;
-		echo $secondary_cat;?>
-	    			Primary Category
 	    			<select id="primary_select" name="primary_select">		<!--Selection of primary category-->
 <?php 
 
 	$get_primary = $mysqli->query("SELECT cat_id, cat_name FROM primary_category");
 
-	echo '<option selected value="0">Select category</option>';				//Default option
+	echo '<option selected value="0">Select Primary category</option>';				//Default option
 
 	$primary_category_count = $get_primary->num_rows;						//Get number of primary categories
 	while($get_primary_list = $get_primary->fetch_assoc()) {
@@ -81,7 +79,6 @@
 					</select>
 	    		</div>
 	    		<div id="secondary_cat"></div>
-	    		<input class="button-primary" type="submit" value="Remove Category" name="uncategorizeSubmit" id="uncategorizeSubmit">
 	    		<input class="button-primary" type="submit" value="Change Category" name="recategorizeSubmit" id="recategorizeSubmit">
 	    	</form>
     	</div>
@@ -149,7 +146,7 @@
 	      	var i;
 	      	var content = "";									//Content for the secondary category dropdown
 	      	content += "Secondary Category ";
-	      	content += '<select id="secondary_select" name="secondary_select"><option selected value="0">Select category</option>';
+	      	content += '<select id="secondary_select" name="secondary_select"><option selected value="0">Select Secondary Category</option>';
 	      	for(i = 0; i < j; i++) {
 	      		content += '<option value="' + data[$(this).val()]['options'][i][0] + '">' + data[$(this).val()]['options'][i][1] + '</option>';
 	      	}

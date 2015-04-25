@@ -450,7 +450,8 @@ table {
   .tg  {border-collapse:collapse;border-spacing:0;}
   .tg td{font-family:Arial, sans-serif;font-size:14px;padding:5px 1px;overflow:hidden;word-break:normal;}
   .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;overflow:hidden;word-break:normal;}
-  .tg .tg-s6z2{text-align:center}
+  .tg tr { border: #000 solid 0px;}
+  .tg .tg-s6z2{text-align:center; border-bottom: none}
 
 
 .overlay{
@@ -780,7 +781,7 @@ figure.effect-lily:hover p {
 }
 
 .morphsearch {
-  width: 400px;
+  width: 450px;
   height: 60px;
 
   z-index: 10000;
@@ -825,10 +826,13 @@ figure.effect-lily:hover p {
 }
 
 .morphsearch.open .morphsearch-form {
-  background: rgba(0,0,0,0);
-    border-radius: 0px;
-    box-shadow: 0 1px 0px rgba(0,0,0,0) inset, 0 0px 0 rgba(0,0,0,0);
-  width: 100%;
+  padding: 10px;
+    background: transparent;
+    border-radius: 10px;
+    box-shadow: 0 0px 0px rgba(0,0,0,0) inset, 0 1px 0 rgba(255,255,255,.2);
+    height:25%;
+  width: 90%;
+  margin: auto;
   -webkit-transform: translate3d(0,3em,0);
   transform: translate3d(0,3em,0);
 }
@@ -883,7 +887,7 @@ figure.effect-lily:hover p {
 }
 
 .morphsearch.open .morphsearch-input {
-  width:70%;
+  width:80%;
   background: transparent !important;
   font-size: 7em;
   text-align:left;
@@ -914,19 +918,23 @@ figure.effect-lily:hover p {
 
 /* placeholder */
 .open .morphsearch-input::-webkit-input-placeholder {
-  color: #c2c2c2;
+  color: #000;
+  opacity: 1;
 }
 
 .open .morphsearch-input.open:-moz-placeholder {
-  color: #c2c2c2;
+  color: #000;
+  opacity: 1;
 }
 
 .open .morphsearch-input::-moz-placeholder {
-  color: #c2c2c2;
+  color: #000;
+  opacity: 1;
 }
 
 .open .morphsearch-input:-ms-input-placeholder {
-  color: #c2c2c2;
+  color: #000;
+  opacity: 1;
 }
 
 
@@ -957,7 +965,7 @@ input[type="search"] { /* reset normalize */
     color: #fff !important;
     font-size: 1em !important;
     text-transform: uppercase;
-    background: #f00 !important;
+    background: #e74c3c !important;
     border-radius: 0 3px 3px 0 !important;      
     text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
   /*width: 25%;
@@ -975,16 +983,15 @@ input[type="search"] { /* reset normalize */
   -webkit-transform: translate3d(-30px,-50%,0) scale3d(0,0,1);
   transform: translate3d(-30px,-50%,0) scale3d(0,0,1);*/
 }
-
 .morphsearch.open .morphsearch-submit {
   border:none;
-  width: 25%;
-  text-indent: 100px;
+  width: 15%;
+  position: relative;
+  text-indent: 2000px;
   background: transparent url(../images/magnifier.svg) no-repeat center center !important;
-  background-size: 100%;
+  background-size: 100% !important;
   pointer-events: auto;
-  width: 100px;
-  height: 100px !important;
+  height: 100% !important;
   opacity: 1;
  
 }
