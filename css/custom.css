@@ -448,7 +448,7 @@ table {
 }
 
   .tg  {border-collapse:collapse;border-spacing:0;}
-  .tg td{font-family:Arial, sans-serif;font-size:14px;padding:5px 1px;overflow:hidden;word-break:normal;}
+  .tg td{font-family:Arial, sans-serif;font-size:14px;padding:12px;overflow:hiddenword-wrap: break-word;;}
   .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;overflow:hidden;word-break:normal;}
   .tg tr { border: #000 solid 0px;}
   .tg .tg-s6z2{text-align:center; border-bottom: none}

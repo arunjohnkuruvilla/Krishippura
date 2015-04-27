@@ -1,4 +1,5 @@
 var advancedStatus = false;
+var isOpen = isAnimating = false;
 $('#advanced_trigger').click(function() {
   if(advancedStatus) {
     $('#primary_select').val('0');
@@ -52,9 +53,10 @@ $.ajax({
 
 //Searching
 $('#searchForm').submit(function() {
+   if(!isOpen) return false;
    var searchQuery = $('#searchInput').val();
    var primCat = $('#primary_select').val();
-
+   alert(searchQuery);
    if(searchQuery == "") {
       alert("Please enter search query.");
       return false;
@@ -150,7 +152,7 @@ $("#primary_select").change(function() {
    var morphSearch = document.getElementById( 'morphsearch' ),
    input = morphSearch.querySelector( 'input.morphsearch-input' ),
    ctrlClose = morphSearch.querySelector( 'span.morphsearch-close' ),
-   isOpen = isAnimating = false,
+   
    // show/hide search area
    toggleSearch = function(evt) {
       // return if open and the input gets focused
@@ -183,7 +185,7 @@ $("#primary_select").change(function() {
    // events
    input.addEventListener( 'focus', toggleSearch );
    ctrlClose.addEventListener( 'click', toggleSearch );
-   document.getElementById('searchSubmit').addEventListener('click', toggleSearch );
+   //document.getElementById('searchSubmit').addEventListener('click', toggleSearch );
    // esc key closes search overlay
    // keyboard navigation events
    document.addEventListener( 'keydown', function( ev ) {
@@ -195,7 +197,7 @@ $("#primary_select").change(function() {
 
 
    /***** for demo purposes only: don't allow to submit the form *****/
-      document.getElementById('searchSubmit').addEventListener( 'click', function(ev) { ev.preventDefault(); } );
+      //document.getElementById('searchSubmit').addEventListener( 'click', function(ev) { ev.preventDefault(); } );
 })();
 
 $(function() {

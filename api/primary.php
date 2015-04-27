@@ -13,6 +13,9 @@
 			case 'Soil Management':
 				$entry['link'] = "landmarks.php";
 				break;
+			case 'Crop Calendar':
+				$entry['link'] = "calendar.php";
+				break;
 			default:
 				$entry['link'] = "category/".$primary_result['cat_id'].'/';
 				break;

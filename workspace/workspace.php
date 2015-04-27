@@ -64,6 +64,8 @@
     		<!--New Article addition ends here-->
 
     		<hr>
+    		<a href="./workspace/calendar.php" class="button">CALENDAR MANAGEMENT</a>
+    		<hr>
     		
     		<div class="row">
     			<h3>User Management</h3>

@@ -32,7 +32,7 @@
 </head>
 <body>
   <!-- Navigation Bar -->
-  <?php require("./includes/layout/navbar.php") ?>
+  <?php include("./includes/layout/navbar.php") ?>
 
   <div style="height:100%;width:100%;background-image:url('images/background.jpg');background-size:100%;background-repeat:no-repeat;" class="shadow">
     <div style="position:absolute;top:40%;left:35%;font-family: 'Quicksand', sans-serif;font-size:6em;color:#fff;margin:auto">AgroDB</div>
