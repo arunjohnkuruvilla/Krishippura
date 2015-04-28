@@ -74,6 +74,7 @@
 
 	$primary_category_count = $get_primary->num_rows;						//Get number of primary categories
 	while($get_primary_list = $get_primary->fetch_assoc()) {
+		if($get_primary_list['cat_id'] < 4) continue;
 		echo '<option value="'.$get_primary_list['cat_id'].'">'.$get_primary_list['cat_name'].'</option>';
 	}
 ?>

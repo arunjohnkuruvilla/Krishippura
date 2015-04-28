@@ -22,11 +22,14 @@
   <link rel="icon" type="image/png" href="">
 
   <style type="text/css">
-    .shadow {
-   -moz-box-shadow:    inset 0 0 10px #000000;
-   -webkit-box-shadow: inset 0 0 10px #000000;
-   box-shadow:         inset 0 0 10px #000000;
-}
+  body {
+    background-image: url(../images/background.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-size: cover;
+    background-color: #464646;
+  }
   </style>
 
 </head>
@@ -34,8 +37,8 @@
   <!-- Navigation Bar -->
   <?php include("./includes/layout/navbar.php") ?>
 
-  <div style="height:100%;width:100%;background-image:url('images/background.jpg');background-size:100%;background-repeat:no-repeat;" class="shadow">
-    <div style="position:absolute;top:40%;left:35%;font-family: 'Quicksand', sans-serif;font-size:6em;color:#fff;margin:auto">AgroDB</div>
+  <div style="height:100%;width:100%;" class="shadow">
+    <div style="position:absolute;top:40%;left:35%;font-family: 'Quicksand', sans-serif;font-size:6em;color:#000;margin:auto;padding:10px;background-color:rgba(255,255,255,0.4);border-radius:4px">AgroDB</div>
   </div>
   <div class="" style="width:100%;height:40%;background: linear-gradient(to bottom,#262b2e 0%,#1d2022 100%);padding:7%">
     <div id="morphsearch" class="morphsearch" style="margin-left: auto;margin-right: auto">

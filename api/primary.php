@@ -11,13 +11,13 @@
 		$entry['image'] = str_replace(" ", "_", $primary_result['cat_name']);
 		switch ($entry['name']) {
 			case 'Soil Management':
-				$entry['link'] = "landmarks.php";
+				$entry['link'] = $primary_result['cat_page'].".php";
 				break;
 			case 'Crop Calendar':
-				$entry['link'] = "calendar.php";
+				$entry['link'] = $primary_result['cat_page'].".php";
 				break;
 			default:
-				$entry['link'] = "category/".$primary_result['cat_id'].'/';
+				$entry['link'] = $primary_result['cat_page'].'/'.$primary_result['cat_id'].'/';
 				break;
 		}
 		array_push($arr, $entry);

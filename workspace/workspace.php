@@ -87,8 +87,8 @@
 						    <td class="tg-s6z2">'.$unapproved_result['user_id'].'</td>
 						    <td class="tg-s6z2">'.$unapproved_result['user_real_name'].'</td>
 						    <td class="tg-s6z2">'.$unapproved_result['user_email'].'</td>
-						    <td class="tg-s6z2"><a class="button" href="./workspace/user/execute.php?execute=approve&id='.$unapproved_result['user_id'].'" style="width:100%;padding:0">APPROVE</a></td>
-						    <td class="tg-s6z2"><a class="button" href="./workspace/user/execute.php?execute=delete&id='.$unapproved_result['user_id'].'" style="width:100%;padding:0">REJECT</a></td>
+						    <td class="tg-s6z2"><a class="button" href="./workspace/user/execute.php?execute=approve&id='.$unapproved_result['user_id'].'" style="width:auto;padding:0">APPROVE</a></td>
+						    <td class="tg-s6z2"><a class="button" href="./workspace/user/execute.php?execute=delete&id='.$unapproved_result['user_id'].'" style="width:auto;padding:0">REJECT</a></td>
 					  	</tr>';
 						}
 					echo '</table>';
@@ -158,12 +158,12 @@
 					    <td class="tg-s6z2">'.$pages_entry['page_id'].'</td>
 					    <td class="tg-s6z2">'.$pages_entry['page_title'].'</td>
 					    <td class="tg-s6z2">'.$pages_entry['user_real_name'].'</td>
-					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'uploadcontents.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:100%;padding:0">UPLOAD</a></td>
-					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'article.php?page='.str_replace(" ", "_", $pages_entry['page_title']).'" style="width:100%;padding:0">VIEW</a></td>
-					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'editor.php?article='.$pages_entry['page_id'].'" style="width:100%;padding:0">EDIT</a></td>
-					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'rename.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:100%;padding:0">RENAME</a></td>
-					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'recategorize.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" target="_blank" style="width:100%;padding:0">CATEGORIZE</a></td>
-					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'execute.php?execute=delete&article='.$pages_entry['page_id'].'" style="width:100%;padding:0">DELETE</a></td>
+					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'uploadcontents.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:auto;padding:0">UPLOAD</a></td>
+					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'article.php?page='.str_replace(" ", "_", $pages_entry['page_title']).'" style="width:db2_autocommit(connection);padding:0">VIEW</a></td>
+					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'editor.php?article='.$pages_entry['page_id'].'" style="width:auto;padding:0">EDIT</a></td>
+					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'rename.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:auto;padding:0">RENAME</a></td>
+					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'recategorize.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" target="_blank" style="width:auto;padding:0">CATEGORIZE</a></td>
+					    <td class="tg-s6z2"><a class="button" href="'.$article_link.'execute.php?execute=delete&article='.$pages_entry['page_id'].'" style="width:auto;padding:0">DELETE</a></td>
 				  	</tr>';
 	}
 	echo "</table><hr/>";
@@ -197,12 +197,12 @@
 							    <td class="tg-s6z2">'.$pages_entry['page_id'].'</td>
 							    <td class="tg-s6z2">'.$pages_entry['page_title'].'</td>
 							    <td class="tg-s6z2">'.$pages_entry['user_real_name'].'</td>
-							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'uploadcontents.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:100%;padding:0">UPLOAD</a></td>
-							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'article.php?page='.str_replace(" ", "_", $pages_entry['page_title']).'" style="width:100%;padding:0">VIEW</a></td>
-							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'editor.php?article='.$pages_entry['page_id'].'" style="width:100%;padding:0">EDIT</a></td>
-							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'rename.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:100%;padding:0">RENAME</a></td>
-							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'recategorize.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" target="_blank" style="width:100%;padding:0">CATEGORIZE</a></td>
-							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'execute.php?execute=delete&article='.$pages_entry['page_id'].'" style="width:100%;padding:0">DELETE</a></td>
+							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'uploadcontents.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:auto;padding:0">UPLOAD</a></td>
+							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'article.php?page='.str_replace(" ", "_", $pages_entry['page_title']).'" style="width:auto;padding:0">VIEW</a></td>
+							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'editor.php?article='.$pages_entry['page_id'].'" style="width:auto;padding:0">EDIT</a></td>
+							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'rename.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" style="width:auto;padding:0">RENAME</a></td>
+							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'recategorize.php?article='.$pages_entry['page_id'].'" onclick="openCategory(this); return false;" target="_blank" style="width:auto;padding:0">CATEGORIZE</a></td>
+							    <td class="tg-s6z2"><a class="button" href="'.$article_link.'execute.php?execute=delete&article='.$pages_entry['page_id'].'" style="width:auto;padding:0">DELETE</a></td>
 						  	</tr>';
 			}
 			echo '</table><hr/>';

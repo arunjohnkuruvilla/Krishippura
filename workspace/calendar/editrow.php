@@ -67,37 +67,37 @@
             echo '<input type="hidden" value="'.$row['id'].'" name="id"/>';
             echo '
                 <div class="twelve columns">
-                    <label for="exampleEmailInput">Your email</label>
+                    <label for="column1Input">Name</label>
                     <input class="u-full-width" type="text" value="'.$row['column1'].'" id="column1Input" name="column1Input">
                 </div>';
             echo '
                 <div class="twelve columns">
-                    <label for="exampleEmailInput">Your email</label>
+                    <label for="column2Input">Time</label>
                     <input class="u-full-width" type="text" value="'.$row['column2'].'" id="column2Input" name="column2Input">
                 </div>';
             echo '
                 <div class="twelve columns">
-                    <label for="exampleEmailInput">Your email</label>
+                    <label for="column3Input">Seeds</label>
                     <input class="u-full-width" type="text" value="'.$row['column3'].'" id="column3Input" name="column3Input">
                 </div>';
             echo '
                 <div class="twelve columns">
-                    <label for="exampleEmailInput">Your email</label>
+                    <label for="column4Input">Size</label>
                     <input class="u-full-width" type="text" value="'.$row['column4'].'" id="column4Input" name="column4Input">
                 </div>';
             echo '
                 <div class="twelve columns">
-                    <label for="exampleEmailInput">Your email</label>
+                    <label for="column5Input">Distance</label>
                     <input class="u-full-width" type="text" value="'.$row['column5'].'" id="column5Input" name="column5Input">
                 </div>';
             echo '
                 <div class="twelve columns">
-                    <label for="exampleEmailInput">Your email</label>
+                    <label for="column6Input">Depth</label>
                     <input class="u-full-width" type="text" value="'.$row['column6'].'" id="column6Input" name="column6Input">
                 </div>';
             echo '
                 <div class="twelve columns">
-                    <label for="exampleEmailInput">Your email</label>
+                    <label for="column7Input">Depth</label>
                     <input class="u-full-width" type="text" value="'.$row['column7'].'" id="column7Input" name="column7Input">
                 </div>';
           ?>

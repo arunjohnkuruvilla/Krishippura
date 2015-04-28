@@ -39,10 +39,7 @@
 
     <div class="container" style="padding-top:5em">
         <div class="twelve columns">
-            <form class="six columns" method="POST" action="workspace/calendar/addnewtable.php">
-                <input type="text" name="newTableName" id="newTableName" placeholder="Enter new table name" />
-                <input type="submit" class="button" href="./workspace/calendar/addnewtable.php" value="Create new table" name="newTableSubmit" id="newTableSubmit">
-                <h5>
+            <h5>
                 <?php 
                     if(isset($_GET['newtable'])) {
                         if($_GET['newtable'] == 1) {
@@ -54,6 +51,11 @@
                             echo "Table deleted successfully";
                         }
                     }
+                    if(isset($_GET['deleterow'])) {
+                        if($_GET['deleterow'] == 1) {
+                            echo "Row deleted successfully";
+                        }
+                    }
                     if(isset($_GET['renametable'])) {
                         if($_GET['renametable'] == 1) {
                             echo "Table renamed successfully";
@@ -61,6 +63,10 @@
                     }
                 ?>
                 </h5>
+            <form class="six columns" method="POST" action="workspace/calendar/addnewtable.php" id="newTableForm">
+                <input type="text" name="newTableName" id="newTableName" placeholder="Enter new table name" />
+                <input type="submit" class="button" href="./workspace/calendar/addnewtable.php" value="Create new table" name="newTableSubmit" id="newTableSubmit">
+                
             </form>
         </div>
         
@@ -88,13 +94,14 @@
                     <col style="width: 10%">
                 </colgroup>
                 <tr>
+                    <th class="tg-s6z2"></th>
                     <th class="tg-s6z2">Name</th>
                     <th class="tg-s6z2">Time</th>
                     <th class="tg-s6z2">Seeds</th>
                     <th class="tg-s6z2">Size</th>
                     <th class="tg-s6z2">Distance</th>
                     <th class="tg-s6z2">Depth</th>
-                    <th class="tg-s6z2"></th>
+                    
                     <th class="tg-s6z2"></th>
                     <th class="tg-s6z2"></th>
                     <th class="tg-s6z2"></th>
@@ -113,15 +120,24 @@
                     <td class="tg-s6z2">'.$table_row['column6'].'</td>
                     <td class="tg-s6z2">'.$table_row['column7'].'</td>
                     <td class="tg-s6z2"><a class="button" href="./workspace/calendar/editrow.php?id='.$table_row['id'].'">EDIT</a></td>
-                    <td class="tg-s6z2"><a class="button" href="./workspace/calendar/addnewrow.php">DELETE</a></td>
+                    <td class="tg-s6z2"><a class="button" href="./workspace/calendar/deleterow.php?id='.$table_row['id'].'">DELETE</a></td>
                 </tr>'; 
             }
             echo '</table>
-            <a class="button" href="./workspace/calendar/addnewrow.php?table='.$table['id'].'">Add a new column</a><br/><br/><br/>';
+            <a class="button" href="./workspace/calendar/addnewrow.php?table='.$table['id'].'">Add a new row</a><br/><br/><br/>';
         }
         ?>
         
         
     <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script type="text/javascript">
+    $("#newTableForm").submit(function() {
+        var newtable = $("#newTableName").val();
+        if(newtable == "") {
+            alert("Please enter new table's name");
+            return false;
+        }
+    });
+    </script>
 </body>
 </html>

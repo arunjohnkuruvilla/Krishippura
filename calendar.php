@@ -22,6 +22,51 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="">
 
+    <style type="text/css">
+    <style type="text/css">
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #38678f;
+  margin: 50px auto;
+  background: white;
+}
+th {
+  background: rgba(0,0,0,0.4);
+  height: 1.5em !important;
+  width: 25%;
+  font-size: 1.2em !important;
+  font-weight: lighter;
+  text-shadow: 0 1px 0 #000;
+  color: white;
+  border: 1px solid #000;
+  transition: all 0.2s;
+}
+tr {
+  border-bottom: 1px solid #000 !important;
+}
+tr:last-child {
+  border-bottom: 0px;
+}
+td {
+  border-right: 1px solid #000;
+  padding: 10px;
+  font-size: 1.2em !important;
+  transition: all 0.2s;
+  overflow:auto;word-wrap: break-word;
+}
+td:last-child {
+  border-right: 0px;
+}
+td.selected {
+  background: #d7e4ef;
+  z-index: ;
+}
+.heavyTable {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: float 5s infinite;
+}</style>
+
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -46,14 +91,14 @@ $.ajax({
       for(i = 0; i < data.length; i++) {
         content += "<h3>" + data[i].name + "</h3>";
         var j;
-            content += '<table class="tg" style="undefined;table-layout: fixed; width: 100%">';
+            content += '<table class="tg u-full-width heavyTable" style="undefined;table-layout: fixed; width: 100%;margin-bottom:3em">';
             content += '    <colgroup>';
-            content += '        <col style="width: 10%">';
-            content += '        <col style="width: 20%">';
-            content += '        <col style="width: 30">';
-            content += '        <col style="width: 10%">';
-            content += '        <col style="width: 10%">';
-            content += '        <col style="width: 10%">';
+            content += '        <col style="width: 15%">';
+            content += '        <col style="width: 15%">';
+            content += '        <col style="width: 15">';
+            content += '        <col style="width: 15%">';
+            content += '        <col style="width: 15%">';
+            content += '        <col style="width: 15%">';
             content += '        <col style="width: 10%">';
             content += '    </colgroup>';
             content += '    <tr>';
