@@ -5,7 +5,6 @@
 
 	$get_primary = $mysqli->query("SELECT cat_id, cat_name FROM primary_category");
 	
-
 	$arr = array();
 	$arr['primary_category_count'] = $get_primary->num_rows;		//number of primary categories
 

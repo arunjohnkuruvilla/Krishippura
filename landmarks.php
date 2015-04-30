@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>AgroDB</title>
+  <title>Krishipurra</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/landmarks.css">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="">
@@ -79,24 +80,7 @@
   
   <script type="text/javascript" src="scripts/jquery.js"></script>
   <script type="text/javascript" src="scripts/jquery.rwdImageMaps.min.js"></script>
-  <script>
-  $(document).ready(function(e) {
-    $('img[usemap]').rwdImageMaps();
-    
-    $('area').on('click', function() {
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-        var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-        if (target.length) {
-          $('html,body').animate({
-            scrollTop: target.offset().top
-          }, 1000);
-          return false;
-        }
-      }
-    });
-  });
-  </script>
+  <script type="text/javascript" src="scripts/landmarks.js"></script>
 
 </body>
 </html>

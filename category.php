@@ -11,7 +11,7 @@
 <head>
   <base href="/" />
   <meta charset="utf-8">
-  <title>AgroDB</title>
+  <title>Krishipurra</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -30,7 +30,7 @@
   <link rel="icon" type="image/png" href="">
 
 </head>
-<body style="background-color:#fff">
+<body style="background: linear-gradient(to bottom,#262b2e 0%,#1d2022 3000px);color:#fff">
 
   <!-- Navigation Bar -->
   <?php require("./includes/layout/navbar.php") ?>
@@ -47,7 +47,7 @@
     $secondary_query = $mysqli->query("SELECT * FROM secondary_category WHERE primary_cat = '$primary_id'");
     while($secondary_query_list = $secondary_query->fetch_assoc()) {
       $secondary_id = $secondary_query_list['sub_cat'];
-      echo '<div style="width:100%;position:relative;float:left"><h4>'.$secondary_query_list['cat_name'].'</h4><div class="grid2">';
+      echo '<div style="width:100%;position:relative;float:left;margin-bottom:1em"><h4>'.$secondary_query_list['cat_name'].'</h4><div class="grid2">';
       
       //echo '<table class="" style="undefined;table-layout: fixed; width: 100%"> <colgroup> <col style="width: 100%"> </colgroup>';
       $pages_list_query = $mysqli->query("SELECT * FROM page INNER JOIN user ON (page_creator=user_id) WHERE prim_cat = '$primary_id' AND sec_cat = '$secondary_id'");

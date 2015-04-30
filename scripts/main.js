@@ -17,8 +17,14 @@ $('#advanced_trigger').click(function() {
 
 $('.morphsearch-close').click(function() {
   $('#advanced').slideUp("fast");
+  advancedStatus = false;
 });
-
+$(document).keyup(function(e) {
+  if (e.keyCode == 27) { 
+    $('#advanced').slideUp("fast");
+    advancedStatus = false;
+  }   // escape key maps to keycode `27`
+});
 
 //to populate the primary categories
 $.ajax({
@@ -40,6 +46,7 @@ $.ajax({
          menuContent += '<a href="'+ data[i]['link'] +'">View more</a>';
          menuContent += '</figcaption>';
          menuContent += '</figure>';
+         if(i == 2) continue;
          selectionContent += '<option value="'+ data[i]['id'] +'">'+ data[i]['name'] +'</option>';
       }
       selectionContent += '</select>';
@@ -56,7 +63,6 @@ $('#searchForm').submit(function() {
    if(!isOpen) return false;
    var searchQuery = $('#searchInput').val();
    var primCat = $('#primary_select').val();
-   alert(searchQuery);
    if(searchQuery == "") {
       alert("Please enter search query.");
       return false;
@@ -88,12 +94,12 @@ $('#searchForm').submit(function() {
          var i;
          var content = "<div>";
          if(data[0]['title'] <= 0) {
-           content += '<div style="height:100%;width:50%;background-color:rgba(0,0,0,0.3);float:left">';
+           content += '<div class="result-item">';
            content += "<h3>" + data[0].content + "</h3></div>";
          }
          else {
            for(i=0; i < data.length; i++) {
-             content += '<div style="height:100%;width:50%;background-color:rgba(0,0,0,0.3);float:left"><h3><a href="articles/'+ data[i].link + '">' + data[i].title + '</a></h3>';
+             content += '<div class="result-item"><h3><a href="articles/'+ data[i].link + '">' + data[i].title + '</a></h3>';
              content += "<p>" + data[i].content + "</p></div>";
            }
          }
@@ -156,28 +162,30 @@ $("#primary_select").change(function() {
    // show/hide search area
    toggleSearch = function(evt) {
       // return if open and the input gets focused
+      input.focus();
       if( evt.type.toLowerCase() === 'focus' && isOpen ) return false;
 
-      var offsets = morphsearch.getBoundingClientRect();
+      //var offsets = morphsearch.getBoundingClientRect();
       if( isOpen ) {
          classie.remove( morphSearch, 'open' );
 
          // trick to hide input text once the search overlay closes 
-         // todo: hardcoded times, should be done after transition ends
-         if( input.value !== '' ) {
+         /* todo: hardcoded times, should be done after transition ends
+         /^if( input.value !== '' ) {
             setTimeout(function() {
                classie.add( morphSearch, 'hideInput' );
+               input.focus();
                setTimeout(function() {
                   classie.remove( morphSearch, 'hideInput' );
                   input.value = '';
                }, 300 );
             }, 500);
-         }
-                 
+         }*/
          input.blur();
       }
       else {
          classie.add( morphSearch, 'open' );
+         input.focus();
       }
       isOpen = !isOpen;
    };

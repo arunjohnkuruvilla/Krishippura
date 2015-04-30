@@ -8,7 +8,7 @@
 <head>
     <base href="/">
     <meta charset="utf-8">
-    <title>AgroDB</title>
+    <title>Krishipurra</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -95,14 +95,13 @@
                 </colgroup>
                 <tr>
                     <th class="tg-s6z2"></th>
-                    <th class="tg-s6z2">Name</th>
-                    <th class="tg-s6z2">Time</th>
-                    <th class="tg-s6z2">Seeds</th>
-                    <th class="tg-s6z2">Size</th>
-                    <th class="tg-s6z2">Distance</th>
-                    <th class="tg-s6z2">Depth</th>
-                    
-                    <th class="tg-s6z2"></th>
+                    <th class="tg-s6z2">Name of Crop</th>
+                    <th class="tg-s6z2">Time and Season</th>
+                    <th class="tg-s6z2">Seeds (g)</th>
+                    <th class="tg-s6z2">Gap between seeds (cm)</th>
+                    <th class="tg-s6z2">Depth (cm)</th>
+                    <th class="tg-s6z2">Sapling Density</th>
+                    <th class="tg-s6z2">Produce (kg)</th>
                     <th class="tg-s6z2"></th>
                     <th class="tg-s6z2"></th>
                 </tr>'; 

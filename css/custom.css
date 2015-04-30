@@ -5,8 +5,8 @@ html, body {
   height: 100%;
 }
 body {
-  background-color: #7f8c8d;
   color: #000;
+  margin: 0;
 }
     .shadow {
    -moz-box-shadow:    inset 0 0 10px #000000;
@@ -802,7 +802,7 @@ figure.effect-lily:hover p {
 }
 
 .morphsearch.open {
-    background: #f1f1f1;
+  background: linear-gradient(to bottom,#262b2e 0%,#1d2022 100%);
   width: 100%;
   min-height: 100%;
   top: 0px;
@@ -833,7 +833,7 @@ figure.effect-lily:hover p {
 
 .morphsearch.open .morphsearch-form {
   padding: 10px;
-    background: transparent;
+    background: rgba(0,0,0,0.3);
     border-radius: 10px;
     box-shadow: 0 0px 0px rgba(0,0,0,0) inset, 0 1px 0 rgba(255,255,255,.2);
     height:25%;
@@ -864,7 +864,10 @@ figure.effect-lily:hover p {
     float: left;    
     border: 0;
     background: #eee;
-    border-radius: 3px 0 0 3px !important;  
+    color: #fff;
+    border-radius: 3px 0 0 3px !important; 
+    -webkit-transition: font-size 0.5s cubic-bezier(0.7,0,0.3,1);
+  transition: font-size 0.5s cubic-bezier(0.7,0,0.3,1); 
 
   /*width: 70% !important;
   height: 40px !important;
@@ -899,47 +902,46 @@ figure.effect-lily:hover p {
   text-align:left;
   padding: 6% 10% 7% 10% !important;
   border:none;
+  opacity: 1;
 }
 
 /* placeholder */
 .morphsearch-input::-webkit-input-placeholder {
   color: #000;
-  opacity: 0;
+
 }
 
 .morphsearch-input.open:-moz-placeholder {
  color: #000;
- opacity: 0;
 }
 
 .morphsearch-input::-moz-placeholder {
   color: #000;
-  opacity: 0;
+
 }
 
 .morphsearch-input:-ms-input-placeholder {
   color: #000;
-  opacity: 0;
 }
 
 /* placeholder */
 .open .morphsearch-input::-webkit-input-placeholder {
-  color: #000;
+  color: #fff;
   opacity: 1;
 }
 
 .open .morphsearch-input.open:-moz-placeholder {
-  color: #000;
+  color: #fff;
   opacity: 1;
 }
 
 .open .morphsearch-input::-moz-placeholder {
-  color: #000;
+  color: #fff;
   opacity: 1;
 }
 
 .open .morphsearch-input:-ms-input-placeholder {
-  color: #000;
+  color: #fff;
   opacity: 1;
 }
 
@@ -1063,7 +1065,7 @@ input[type="search"] { /* reset normalize */
   float:left;
   overflow: hidden;
   padding: 0 10.5%;
-  background: #f1f1f1;
+  background: linear-gradient(to bottom,#262b2e 0%,#1d2022 100%);
   position: relative;
   ents: none;
   opacity: 0;

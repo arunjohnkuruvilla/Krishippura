@@ -56,7 +56,7 @@
   <div style="padding-top:5rem">
     <div class="container">
       <div class="row">
-        <form action="./workspace/login.php", method="POST">
+        <form action="./workspace/login.php", method="POST" class="twelve columns" style="position:absolute;top:15em;left:20em;">
           <div class="row">
             <div class="four columns">
               <input class="u-full-width" type="text" placeholder="username" id="usernameLogin" name="usernameLogin">

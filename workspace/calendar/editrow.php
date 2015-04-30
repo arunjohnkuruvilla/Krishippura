@@ -33,7 +33,7 @@
 
     <base href="/">
     <meta charset="utf-8">
-    <title>AgroDB</title>
+    <title>Krishipurra</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -67,37 +67,37 @@
             echo '<input type="hidden" value="'.$row['id'].'" name="id"/>';
             echo '
                 <div class="twelve columns">
-                    <label for="column1Input">Name</label>
+                    <label for="column1Input">Name of Crop</label>
                     <input class="u-full-width" type="text" value="'.$row['column1'].'" id="column1Input" name="column1Input">
                 </div>';
             echo '
                 <div class="twelve columns">
-                    <label for="column2Input">Time</label>
+                    <label for="column2Input">Time and Season</label>
                     <input class="u-full-width" type="text" value="'.$row['column2'].'" id="column2Input" name="column2Input">
                 </div>';
             echo '
                 <div class="twelve columns">
-                    <label for="column3Input">Seeds</label>
+                    <label for="column3Input">Seeds (g)</label>
                     <input class="u-full-width" type="text" value="'.$row['column3'].'" id="column3Input" name="column3Input">
                 </div>';
             echo '
                 <div class="twelve columns">
-                    <label for="column4Input">Size</label>
+                    <label for="column4Input">Gap between seeds (cm)</label>
                     <input class="u-full-width" type="text" value="'.$row['column4'].'" id="column4Input" name="column4Input">
                 </div>';
             echo '
                 <div class="twelve columns">
-                    <label for="column5Input">Distance</label>
+                    <label for="column5Input">Depth (cm)</label>
                     <input class="u-full-width" type="text" value="'.$row['column5'].'" id="column5Input" name="column5Input">
                 </div>';
             echo '
                 <div class="twelve columns">
-                    <label for="column6Input">Depth</label>
+                    <label for="column6Input">Sapling Density</label>
                     <input class="u-full-width" type="text" value="'.$row['column6'].'" id="column6Input" name="column6Input">
                 </div>';
             echo '
                 <div class="twelve columns">
-                    <label for="column7Input">Depth</label>
+                    <label for="column7Input">Produce (kg)</label>
                     <input class="u-full-width" type="text" value="'.$row['column7'].'" id="column7Input" name="column7Input">
                 </div>';
           ?>

@@ -49,6 +49,10 @@ body {
 	color: #000;
 }
 
+#main_content .button {
+	background-color: #fff !important;
+}
+
 .article-head {
 	width:100%;
 	margin-bottom:2rem;

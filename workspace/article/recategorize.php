@@ -33,7 +33,7 @@
 <head>
 	<base href="/"/>
   	<meta charset="utf-8">
-  	<title>AgroDB</title>
+  	<title>Krishipurra</title>
   	<meta name="description" content="">
   	<meta name="author" content="">
 

@@ -3,7 +3,7 @@
 	require_once('../workspace/initialize_database.php');
 	require_once('../workspace/article/functions.php');
 
-	$article_name = str_replace("_", " ", $_GET['page']);
+	$article_name = str_replace("_", " ", htmlspecialchars($_GET['page']));
 
 	$query = "SELECT * FROM `page` WHERE `page_title`='$article_name'";
 	$result = $mysqli->query($query);

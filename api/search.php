@@ -9,8 +9,8 @@
   		$query = $_GET['query'];
       if(preg_match('/^[a-zA-Z0-9 ]+/', $query) && $query != "") {       //query has only alphanumeric characters
     		if(isset($_GET['primary']) AND isset($_GET['secondary'])) {          //if primary or secondary categories set
-    			$primary_cat = $_GET['primary'];
-    			$secondary_cat = $_GET['secondary'];
+    			$primary_cat = htmlspecialchars($_GET['primary']);
+    			$secondary_cat = htmlspecialchars($_GET['secondary']);
     			if($primary_cat == "0"){
     				//echo '$primary_cat == "0"';
     				//echo '<br/>';
